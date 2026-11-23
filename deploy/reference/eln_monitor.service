@@ -1,0 +1,24 @@
+[Unit]
+Description=Read-only ELN integration monitor on port 8092
+After=network-online.target eln_interface.service
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=unitree
+Group=unitree
+WorkingDirectory=/home/unitree/rh56dfx/workspace/communication/eln_http_demo
+Environment=PYTHONDONTWRITEBYTECODE=1
+EnvironmentFile=-/etc/default/rh56dfx-eln-monitor
+ExecStart=/home/unitree/.miniconda3/envs/Unitree/bin/python -m deployment.integration_monitor --host 0.0.0.0 --port 8092
+Restart=always
+RestartSec=3
+TimeoutStopSec=15
+KillMode=control-group
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

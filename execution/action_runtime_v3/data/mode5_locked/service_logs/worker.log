@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/home/unitree/rh56dfx/workspace/execution/action_runtime_v3/deployment/rail_jetson/native_worker.py", line 363, in <module>
+    main()
+  File "/home/unitree/rh56dfx/workspace/execution/action_runtime_v3/deployment/rail_jetson/native_worker.py", line 337, in main
+    preparation = LockedPreparation(args.mode5_preflight, release, ROOT) if args.mode5_preflight else None
+NameError: name 'ROOT' is not defined
+[ERROR] [1795165968.375451042] [jetson_recorded_executor]: Gateway retained; support state uncertain: Cannot exit gateway without fresh silent-output confirmation
+[ERROR] [1795401191.154471756] [jetson_recorded_executor]: Gateway retained; support state uncertain: Cannot exit gateway without fresh silent-output confirmation
+/home/unitree/rh56dfx/workspace/execution/action_runtime_v3/scripts/task_trajectory.py:72: RuntimeWarning: invalid value encountered in matmul
+  return _bernstein_matrix(len(power)-1) @ power

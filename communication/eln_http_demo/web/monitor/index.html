@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ELN 联调监控</title><link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header><div class="brand"><img src="/assets/icons/radio-tower.svg" alt=""><strong>ELN 联调监控</strong><span class="tag">只读</span></div><div class="connection"><i id="connection-dot"></i><span id="connection">连接中</span><time id="updated">--</time></div></header>
+<main>
+  <div class="page-heading"><div><div class="eyebrow">ROBOT / PC2</div><h1>通信现场</h1></div><div class="actions"><button id="refresh" title="立即刷新"><img src="/assets/icons/refresh-cw.svg" alt="">刷新</button><button id="pause" title="暂停页面更新"><img src="/assets/icons/pause.svg" alt=""><span>暂停</span></button><button id="export" title="导出当前监控快照"><img src="/assets/icons/download.svg" alt="">导出</button></div></div>
+  <div id="errors" role="alert" hidden></div>
+  <form id="auth" hidden><label>监控访问密钥 <input id="key" type="password" autocomplete="off"></label><button type="submit">连接</button></form>
+  <section class="status-band" aria-label="服务状态"><div><span class="label">机器人后端</span><strong id="backend">--</strong></div><div><span class="label">执行模式</span><strong id="mode">--</strong></div><div><span class="label">初始化</span><strong id="initialized">--</strong></div><div><span class="label">当前任务</span><strong id="active">--</strong></div></section>
+  <section class="metrics" aria-label="通信指标"><div><span>请求历史 / 持久化累计</span><strong id="request-count">--</strong><small id="last-request">最近请求 --</small></div><div><span>任务记录 / 数据库累计</span><strong id="task-count">--</strong><small id="running-count">执行中 --</small></div><div><span>回调已送达 / 数据库累计</span><strong id="delivered-count">--</strong><small id="pending-count">待投递 --</small></div><div><span>回调重试耗尽 / 数据库累计</span><strong id="failed-count">--</strong><small id="recovery">恢复状态 --</small></div></section>
+  <section class="workspace"><div class="records"><div class="records-toolbar">
+    <nav aria-label="记录类型"><button class="tab active" data-tab="requests">请求到达 <span id="requests-size">0</span></button><button class="tab" data-tab="tasks">任务状态 <span id="tasks-size">0</span></button><button class="tab" data-tab="callbacks">回调投递 <span id="callbacks-size">0</span></button></nav>
+    <div class="filters"><input id="search" type="search" placeholder="筛选任务号、来源、路径或错误" aria-label="筛选记录"><select id="filter" aria-label="筛选结果"><option value="all">全部结果</option><option value="problem">异常 / 拒绝</option><option value="pending">处理中 / 待投递</option><option value="success">成功</option></select></div>
+    <div id="history-filters"><label>开始 <input id="since" type="datetime-local"></label><label>结束 <input id="until" type="datetime-local"></label><label><input id="show-health" type="checkbox">健康检查</label></div>
+  </div><div class="table-scroll"><table><thead id="head"></thead><tbody id="rows"></tbody></table></div><div id="empty" class="empty" hidden><img src="/assets/icons/inbox.svg" alt=""><strong>暂无匹配记录</strong></div>
+  <div id="pagination"><button id="prev-page" title="上一页" aria-label="上一页">&larr;</button><span id="page-label">1 / 1</span><button id="next-page" title="下一页" aria-label="下一页">&rarr;</button><button id="latest" title="返回最新记录"><img src="/assets/icons/refresh-cw.svg" alt="">最新记录</button></div><footer id="record-footer"></footer></div>
+  <aside><div class="detail-title"><h2>记录详情</h2><span id="detail-kind">--</span></div><div id="detail-empty">未选择记录</div><div id="detail" hidden><dl id="detail-fields"></dl><div id="timeline-section" hidden><h3>请求处理过程</h3><ol id="timeline"></ol></div><h3>数据记录</h3><pre id="detail-json"></pre></div></aside></section>
+  <footer class="sources"><span id="source-api">API --</span><span id="source-journal">日志 --</span><span>自动刷新 · 2 秒</span></footer>
+</main><script src="/assets/app.js"></script>
+</body></html>

@@ -1,0 +1,74 @@
+{
+  "status": "PASS",
+  "numpy_version": "1.17.4",
+  "hardware_commands_sent": 0,
+  "check": "Compare Bernstein matrix multiplication with non-optimized einsum; compare regenerated joins exactly",
+  "max_absolute_error": 2.7755575615628914e-17,
+  "matrix_operations": 1400,
+  "numpy_warnings": 0,
+  "cases": [
+    {
+      "version": "session-push-9mm-0407b06c6a1e",
+      "action": "dring_pair",
+      "matrix_operations": 200,
+      "numpy_warnings": 0,
+      "max_absolute_error": 2.7755575615628914e-17,
+      "finite": true,
+      "reproduced_runtime_join_sha256": "efbcbfee7e15e7a100ab2b90096794ed2d132d74c6602dc696588fc5d5999c0f"
+    },
+    {
+      "version": "approved-v5-187da34744786457",
+      "action": "dring_pair",
+      "matrix_operations": 200,
+      "numpy_warnings": 0,
+      "max_absolute_error": 2.7755575615628914e-17,
+      "finite": true,
+      "reproduced_runtime_join_sha256": "efbcbfee7e15e7a100ab2b90096794ed2d132d74c6602dc696588fc5d5999c0f"
+    },
+    {
+      "version": "approved-v5-41627aecf693da23",
+      "action": "dring_pair",
+      "matrix_operations": 200,
+      "numpy_warnings": 0,
+      "max_absolute_error": 2.7755575615628914e-17,
+      "finite": true,
+      "reproduced_runtime_join_sha256": "efbcbfee7e15e7a100ab2b90096794ed2d132d74c6602dc696588fc5d5999c0f"
+    },
+    {
+      "version": "approved-v5-41627aecf693da23",
+      "action": "push",
+      "matrix_operations": 200,
+      "numpy_warnings": 0,
+      "max_absolute_error": 1.734723475976807e-18,
+      "finite": true,
+      "reproduced_runtime_join_sha256": "2cef7e475edaef5073f6111bfec2ea0a5f6e52e2981bfcc0949098e4e512f105"
+    },
+    {
+      "version": "approved-v5-41627aecf693da23",
+      "action": "pull",
+      "matrix_operations": 200,
+      "numpy_warnings": 0,
+      "max_absolute_error": 1.734723475976807e-18,
+      "finite": true,
+      "reproduced_runtime_join_sha256": "2cef7e475edaef5073f6111bfec2ea0a5f6e52e2981bfcc0949098e4e512f105"
+    },
+    {
+      "version": "approved-v5-41627aecf693da23",
+      "action": "gear_roundtrip_lower_upper",
+      "matrix_operations": 200,
+      "numpy_warnings": 0,
+      "max_absolute_error": 1.734723475976807e-18,
+      "finite": true,
+      "reproduced_runtime_join_sha256": "2cef7e475edaef5073f6111bfec2ea0a5f6e52e2981bfcc0949098e4e512f105"
+    },
+    {
+      "version": "approved-v5-41627aecf693da23",
+      "action": "gear_roundtrip_upper_lower",
+      "matrix_operations": 200,
+      "numpy_warnings": 0,
+      "max_absolute_error": 1.734723475976807e-18,
+      "finite": true,
+      "reproduced_runtime_join_sha256": "2cef7e475edaef5073f6111bfec2ea0a5f6e52e2981bfcc0949098e4e512f105"
+    }
+  ]
+}

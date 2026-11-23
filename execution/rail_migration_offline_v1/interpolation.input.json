@@ -1,0 +1,98 @@
+[
+  {
+    "operation": "push",
+    "label": "\u79fb\u52a8\u5230\u53f3\u624b above-table",
+    "rows": 109,
+    "axes": 8
+  },
+  {
+    "operation": "push",
+    "label": "\u8854\u63a5 \u63a5\u8fd1\u63a8\u8fdb A \u8d77\u70b9",
+    "rows": 109,
+    "axes": 8
+  },
+  {
+    "operation": "push",
+    "label": "Rail recorded approach_A",
+    "rows": 2129,
+    "axes": 8
+  },
+  {
+    "operation": "push",
+    "label": "\u8854\u63a5 \u63a8\u8fdb\uff1a\u63a8\u8fdb A \u2192 \u63a8\u8fdb B \u8d77\u70b9",
+    "rows": 109,
+    "axes": 8
+  },
+  {
+    "operation": "push",
+    "label": "Rail recorded push",
+    "rows": 1096,
+    "axes": 8
+  },
+  {
+    "operation": "push",
+    "label": "\u8854\u63a5 \u63a8\u8fdb B \u9000\u51fa \u8d77\u70b9",
+    "rows": 109,
+    "axes": 8
+  },
+  {
+    "operation": "push",
+    "label": "Rail recorded retreat_B",
+    "rows": 1126,
+    "axes": 8
+  },
+  {
+    "operation": "push",
+    "label": "\u8fd4\u56de\u53f3\u624b above-table",
+    "rows": 842,
+    "axes": 8
+  },
+  {
+    "operation": "pull",
+    "label": "\u79fb\u52a8\u5230\u53f3\u624b above-table",
+    "rows": 109,
+    "axes": 8
+  },
+  {
+    "operation": "pull",
+    "label": "\u8854\u63a5 \u63a5\u8fd1\u62c9\u51fa B \u8d77\u70b9",
+    "rows": 109,
+    "axes": 8
+  },
+  {
+    "operation": "pull",
+    "label": "Rail recorded approach_B",
+    "rows": 2553,
+    "axes": 8
+  },
+  {
+    "operation": "pull",
+    "label": "\u8854\u63a5 \u62c9\u51fa\uff1a\u62c9\u51fa B \u2192 \u62c9\u51fa A \u8d77\u70b9",
+    "rows": 109,
+    "axes": 8
+  },
+  {
+    "operation": "pull",
+    "label": "Rail recorded pull",
+    "rows": 536,
+    "axes": 8
+  },
+  {
+    "operation": "pull",
+    "label": "\u8854\u63a5 \u62c9\u51fa A \u9000\u51fa \u8d77\u70b9",
+    "rows": 109,
+    "axes": 8
+  },
+  {
+    "operation": "pull",
+    "label": "Rail recorded retreat_A",
+    "rows": 783,
+    "axes": 8
+  },
+  {
+    "operation": "pull",
+    "label": "\u8fd4\u56de\u53f3\u624b above-table",
+    "rows": 862,
+    "axes": 8
+  }
+]

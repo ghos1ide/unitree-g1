@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-09-21T15:56:34.378928+08:00",
+  "operator_confirmed_r2_a": true,
+  "operator_confirmed_hold_reference": false,
+  "capture_mode": "R2_A",
+  "joints": {
+    "left_shoulder_pitch_joint": 0.2581162452697754,
+    "left_shoulder_roll_joint": 0.283618688583374,
+    "left_shoulder_yaw_joint": -0.09462743997573853,
+    "left_elbow_joint": 0.8413405418395996,
+    "left_wrist_roll_joint": 0.0025047031231224537,
+    "left_wrist_pitch_joint": 0.025640489533543587,
+    "left_wrist_yaw_joint": -0.006948933470994234,
+    "right_shoulder_pitch_joint": 0.2574091851711273,
+    "right_shoulder_roll_joint": -0.27445074915885925,
+    "right_shoulder_yaw_joint": 0.10055963695049286,
+    "right_elbow_joint": 0.802152156829834,
+    "right_wrist_roll_joint": -0.011181281879544258,
+    "right_wrist_pitch_joint": 0.017924565821886063,
+    "right_wrist_yaw_joint": 0.009004468098282814,
+    "waist_yaw_joint": -0.007245015352964401
+  },
+  "hand_state_saved": false
+}

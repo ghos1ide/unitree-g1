@@ -1,0 +1,300 @@
+{
+  "status": "SUCCEEDED",
+  "completed_at": "2026-11-19T10:39:35.428443+08:00",
+  "simulation": true,
+  "hardware_commands_sent": 0,
+  "collision_checked": false,
+  "sampling_step_ns": 10000000,
+  "includes_all_arm_knots": true,
+  "knot_tolerance": {
+    "positions": 1e-10,
+    "velocities": 1e-08,
+    "accelerations": 1e-07
+  },
+  "gateway_interpolation_sha256": "ca8b7da288f7d1117d3d222657eb0a1fced5d039d4842b6d0a4f3ea244d26df8",
+  "harness_sha256": "9773643dd66092cbd642073a253f9863287f5b70b77309db8822cfb230d86efc",
+  "planner_urdf_sha256": "ff85f3e90223a7191f77d661718b7746dea71c0a4ca7ba16b980fbfa776f0780",
+  "releases": [
+    {
+      "version": "session-push-9mm-0407b06c6a1e",
+      "source": "action_runtime_v3/config/selected_bundle.json",
+      "file_sha256": "67fc0e512b5a4a281eee369335a46463d5a70f7f41f0e3b60df942cfc8102fe1",
+      "payload_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d",
+      "integrity_verified": true,
+      "actions": [
+        {
+          "action": "dring_pair",
+          "arm": "left",
+          "duration_s": 75.605066702,
+          "recorded_segments": 1,
+          "arm_knots": 3069,
+          "samples": 10609,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 1,
+          "runtime_warnings": [
+            "invalid value encountered in matmul"
+          ],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 2.3192372733726994e-15,
+            "accelerations": 3.7997629001582405e-10
+          }
+        },
+        {
+          "action": "push",
+          "arm": "right",
+          "duration_s": 32.105020947,
+          "recorded_segments": 1,
+          "arm_knots": 1642,
+          "samples": 4834,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 0,
+          "runtime_warnings": [],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 2.959511452919942e-17,
+            "accelerations": 2.79614407130347e-15
+          }
+        },
+        {
+          "action": "pull",
+          "arm": "right",
+          "duration_s": 32.640874263,
+          "recorded_segments": 3,
+          "arm_knots": 1278,
+          "samples": 4520,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 0,
+          "runtime_warnings": [],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 4.336808689942018e-17,
+            "accelerations": 1.9554868987837953e-15
+          }
+        },
+        {
+          "action": "gear_roundtrip_lower_upper",
+          "arm": "right",
+          "duration_s": 52.551222061,
+          "recorded_segments": 3,
+          "arm_knots": 1985,
+          "samples": 7221,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 0,
+          "runtime_warnings": [],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 1.4123444959982927e-17,
+            "accelerations": 2.568177786685393e-10
+          }
+        },
+        {
+          "action": "gear_roundtrip_upper_lower",
+          "arm": "right",
+          "duration_s": 59.546598898,
+          "recorded_segments": 3,
+          "arm_knots": 2199,
+          "samples": 8135,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 0,
+          "runtime_warnings": [],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 1.4382238103483412e-17,
+            "accelerations": 1.0300428360551582e-09
+          }
+        }
+      ]
+    },
+    {
+      "version": "approved-v5-187da34744786457",
+      "source": "action_runtime_v3/data/action_releases/approved-v5-187da34744786457/bundle.json",
+      "file_sha256": "c55f355e211c46bc7fcf0a4ffd4d03c48105fa4927d5a0cc072de3931eb3cebf",
+      "payload_sha256": "7081efdb799d3e22f63e4e4fd19c8282c7387092cad5347e2afaef941ad01dda",
+      "integrity_verified": true,
+      "actions": [
+        {
+          "action": "dring_pair",
+          "arm": "left",
+          "duration_s": 75.605066702,
+          "recorded_segments": 1,
+          "arm_knots": 3069,
+          "samples": 10609,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 1,
+          "runtime_warnings": [
+            "invalid value encountered in matmul"
+          ],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 2.3192372733726994e-15,
+            "accelerations": 3.7997629001582405e-10
+          }
+        },
+        {
+          "action": "push",
+          "arm": "right",
+          "duration_s": 32.105020947,
+          "recorded_segments": 1,
+          "arm_knots": 1461,
+          "samples": 4653,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 0,
+          "runtime_warnings": [],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 2.621281572586234e-17,
+            "accelerations": 2.4795994594577942e-15
+          }
+        },
+        {
+          "action": "pull",
+          "arm": "right",
+          "duration_s": 40.023583373,
+          "recorded_segments": 3,
+          "arm_knots": 1879,
+          "samples": 5863,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 0,
+          "runtime_warnings": [],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 1.618335073884471e-17,
+            "accelerations": 8.837022629460878e-13
+          }
+        },
+        {
+          "action": "gear_roundtrip_lower_upper",
+          "arm": "right",
+          "duration_s": 60.707094857,
+          "recorded_segments": 3,
+          "arm_knots": 2533,
+          "samples": 8585,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 0,
+          "runtime_warnings": [],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 1.4123444959982927e-17,
+            "accelerations": 2.568177786685393e-10
+          }
+        },
+        {
+          "action": "gear_roundtrip_upper_lower",
+          "arm": "right",
+          "duration_s": 75.448856538,
+          "recorded_segments": 3,
+          "arm_knots": 3268,
+          "samples": 10795,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 0,
+          "runtime_warnings": [],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 3.4125594702999183e-16,
+            "accelerations": 3.854634998191375e-09
+          }
+        }
+      ]
+    },
+    {
+      "version": "approved-v5-41627aecf693da23",
+      "source": "action_runtime_v3/data/action_releases/approved-v5-41627aecf693da23/bundle.json",
+      "file_sha256": "3b445bd5373dbae96b41cf4b36731156cff770d05978c19aad34c8c8c510c79f",
+      "payload_sha256": "f1703a4bbfd5213afcd0b440900bf20395d43715f88af5f37f9eec180d72c4b4",
+      "integrity_verified": true,
+      "actions": [
+        {
+          "action": "dring_pair",
+          "arm": "left",
+          "duration_s": 75.605066702,
+          "recorded_segments": 1,
+          "arm_knots": 3069,
+          "samples": 10609,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 1,
+          "runtime_warnings": [
+            "invalid value encountered in matmul"
+          ],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 2.3192372733726994e-15,
+            "accelerations": 3.7997629001582405e-10
+          }
+        },
+        {
+          "action": "push",
+          "arm": "right",
+          "duration_s": 33.730529979,
+          "recorded_segments": 1,
+          "arm_knots": 831,
+          "samples": 4186,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 1,
+          "runtime_warnings": [
+            "invalid value encountered in matmul"
+          ],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 0.0,
+            "accelerations": 0.0
+          }
+        },
+        {
+          "action": "pull",
+          "arm": "right",
+          "duration_s": 47.70161601,
+          "recorded_segments": 3,
+          "arm_knots": 1161,
+          "samples": 5914,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 1,
+          "runtime_warnings": [
+            "invalid value encountered in matmul"
+          ],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 3.0305707186949077e-18,
+            "accelerations": 8.837022629460878e-13
+          }
+        },
+        {
+          "action": "gear_roundtrip_lower_upper",
+          "arm": "right",
+          "duration_s": 57.52277154,
+          "recorded_segments": 3,
+          "arm_knots": 2941,
+          "samples": 8675,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 1,
+          "runtime_warnings": [
+            "invalid value encountered in matmul"
+          ],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 5.732153382655537e-18,
+            "accelerations": 9.091087356636485e-10
+          }
+        },
+        {
+          "action": "gear_roundtrip_upper_lower",
+          "arm": "right",
+          "duration_s": 73.204734023,
+          "recorded_segments": 3,
+          "arm_knots": 2913,
+          "samples": 10216,
+          "runtime_status": "SUCCEEDED",
+          "generated_joins": 1,
+          "runtime_warnings": [
+            "invalid value encountered in matmul"
+          ],
+          "max_knot_error": {
+            "positions": 0.0,
+            "velocities": 3.4125594702999183e-16,
+            "accelerations": 3.854634998191375e-09
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+string task_id
+string task_type
+int32 count
+string wow_signal
+string pre_action
+string cycle_mode
+string simulation_fault
+int32 simulation_occurrence
+---
+bool success
+string status
+int32 progress
+string error_code
+string message
+---
+string status
+int32 progress
+string message

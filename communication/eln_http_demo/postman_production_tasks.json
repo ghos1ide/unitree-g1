@@ -1,0 +1,67 @@
+{
+  "info": {
+    "name": "ELN real robot tasks - manual send only",
+    "description": "WARNING: port 8090 controls the real robot. Do not Run Collection. Confirm initialization, recovery state, ownership, robot stability, clear workspace and physical stop access before sending motion. Set baseUrl and callbackUrl first. Each submission generates a new taskId, saved for query/cancel. Do not resend an uncertain submission; query first. Postman is not a callback receiver. GEAR_OPERATION is not configured in production.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "baseUrl", "value": "http://ROBOT_IP:8090"},
+    {"key": "callbackUrl", "value": "http://CALLBACK_PC_IP:8001/eln/api/v1/robot-callbacks/task-status"},
+    {"key": "taskId", "value": ""},
+    {"key": "action", "value": "push"}
+  ],
+  "item": [
+    {
+      "name": "01 Read health (no motion)",
+      "request": {"method": "GET", "url": "{{baseUrl}}/health"}
+    },
+    {
+      "name": "02 NWS one cycle (REAL MOTION)",
+      "event": [{"listen": "prerequest", "script": {"type": "text/javascript", "exec": ["pm.collectionVariables.set('taskId', 'PM-' + pm.variables.replaceIn('{{$guid}}'));", "console.log('Submitted taskId:', pm.collectionVariables.get('taskId'));"]}}],
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": "{{baseUrl}}/api/v1/tasks",
+        "body": {"mode": "raw", "raw": "{\n  \"taskId\": \"{{taskId}}\",\n  \"taskType\": \"NWS_CYCLE\",\n  \"callbackUrl\": \"{{callbackUrl}}\",\n  \"parameters\": {\"count\": 1}\n}", "options": {"raw": {"language": "json"}}}
+      }
+    },
+    {
+      "name": "03 AIR mapped to push (REAL MOTION)",
+      "event": [{"listen": "prerequest", "script": {"type": "text/javascript", "exec": ["pm.collectionVariables.set('taskId', 'PM-' + pm.variables.replaceIn('{{$guid}}'));", "console.log('Submitted taskId:', pm.collectionVariables.get('taskId'));"]}}],
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": "{{baseUrl}}/api/v1/tasks",
+        "body": {"mode": "raw", "raw": "{\n  \"taskId\": \"{{taskId}}\",\n  \"taskType\": \"NLG_WOW_OPERATION\",\n  \"callbackUrl\": \"{{callbackUrl}}\",\n  \"parameters\": {\"wowSignal\": \"AIR\"}\n}", "options": {"raw": {"language": "json"}}}
+      }
+    },
+    {
+      "name": "04 GROUND mapped to pull (REAL MOTION)",
+      "event": [{"listen": "prerequest", "script": {"type": "text/javascript", "exec": ["pm.collectionVariables.set('taskId', 'PM-' + pm.variables.replaceIn('{{$guid}}'));", "console.log('Submitted taskId:', pm.collectionVariables.get('taskId'));"]}}],
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": "{{baseUrl}}/api/v1/tasks",
+        "body": {"mode": "raw", "raw": "{\n  \"taskId\": \"{{taskId}}\",\n  \"taskType\": \"NLG_WOW_OPERATION\",\n  \"callbackUrl\": \"{{callbackUrl}}\",\n  \"parameters\": {\"wowSignal\": \"GROUND\"}\n}", "options": {"raw": {"language": "json"}}}
+      }
+    },
+    {
+      "name": "05 Selected recorded action (REAL MOTION)",
+      "event": [{"listen": "prerequest", "script": {"type": "text/javascript", "exec": ["pm.collectionVariables.set('taskId', 'PM-' + pm.variables.replaceIn('{{$guid}}'));", "console.log('Submitted taskId:', pm.collectionVariables.get('taskId'));"]}}],
+      "request": {
+        "method": "POST",
+        "header": [{"key": "Content-Type", "value": "application/json"}],
+        "url": "{{baseUrl}}/api/v1/actions/{{action}}/tasks",
+        "body": {"mode": "raw", "raw": "{\n  \"taskId\": \"{{taskId}}\",\n  \"callbackUrl\": \"{{callbackUrl}}\"\n}", "options": {"raw": {"language": "json"}}}
+      }
+    },
+    {
+      "name": "06 Query last submitted task (no motion)",
+      "request": {"method": "POST", "url": "{{baseUrl}}/api/v1/tasks/{{taskId}}/query", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{}"}}
+    },
+    {
+      "name": "07 Cancel last submitted task (controlled stop, not E-stop)",
+      "request": {"method": "POST", "url": "{{baseUrl}}/api/v1/tasks/{{taskId}}/cancel", "header": [{"key": "Content-Type", "value": "application/json"}], "body": {"mode": "raw", "raw": "{\"reason\": \"Postman operator cancelled\"}"}}
+    }
+  ]
+}

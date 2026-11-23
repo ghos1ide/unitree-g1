@@ -1,0 +1,422 @@
+{
+  "1bea82fc03a94291a14cf9bc0711ad05": {
+    "id": "1bea82fc03a94291a14cf9bc0711ad05",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Hand get right: DDS reply timed out (3104); no service acknowledgement received",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "22124481631a4886b23421b404b5b8b9": {
+    "id": "22124481631a4886b23421b404b5b8b9",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Live start drifted from the reviewed preparation preview; rerun preflight",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "d69317cb478648e693bbf48152095095": {
+    "id": "d69317cb478648e693bbf48152095095",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Live pose differs from the reviewed preparation; no ARM sent",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "7671cceb29b745fd945bc6f724100460": {
+    "id": "7671cceb29b745fd945bc6f724100460",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Live pose differs from the reviewed preparation; no ARM sent",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "d4938af8d4ea4360adbcab2d6ddfd584": {
+    "id": "d4938af8d4ea4360adbcab2d6ddfd584",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Live pose differs from the reviewed preparation; no ARM sent",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "657a3be515704ee4b2c03246ca28db11": {
+    "id": "657a3be515704ee4b2c03246ca28db11",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Live start drifted from the reviewed preparation preview in ARMED_HOLD; no preparation trajectory sent; preflight=/home/unitree/rh56dfx/workspace/build/mode5_pull_live_20261120_170652/preflight.json; tolerance=0.010 rad; waist_pitch_joint=+0.01132 rad",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "77a1b0d24fb749bb805eb0e82f6e1b82": {
+    "id": "77a1b0d24fb749bb805eb0e82f6e1b82",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Live pose differs from the reviewed preparation; no ARM sent; preflight=/home/unitree/rh56dfx/workspace/build/mode5_pull_live_20261120_170652/preflight.json; tolerance=0.010 rad; waist_pitch_joint=+0.02454 rad",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "302ae88ddac54688889fd323dd8937c0": {
+    "id": "302ae88ddac54688889fd323dd8937c0",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Live pose differs from the reviewed preparation; no ARM sent; preflight=/home/unitree/rh56dfx/workspace/build/mode5_pull_live_20261120_172511/preflight.json; tolerance=0.010 rad; right_shoulder_pitch_joint=+0.01123 rad",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "6d710fe9a76d4f6498167078e95f68c4": {
+    "id": "6d710fe9a76d4f6498167078e95f68c4",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Stationary/endpoint wait expired; no trajectory resend",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "7ae27854db9949ebbd9ee0de33248bf3": {
+    "id": "7ae27854db9949ebbd9ee0de33248bf3",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Live pose differs from the reviewed preparation; no ARM sent; preflight=/home/unitree/rh56dfx/workspace/build/mode5_pull_live_20261120_174423/preflight.json; tolerance=0.050 rad; right_wrist_roll_joint=-1.51110 rad, left_wrist_roll_joint=+1.43118 rad, left_elbow_joint=-1.40426 rad, right_elbow_joint=-1.39659 rad, left_shoulder_pitch_joint=+0.82677 rad, right_shoulder_pitch_joint=+0.82318 rad, left_wrist_yaw_joint=+0.65163 rad, right_wrist_yaw_joint=-0.59727 rad, left_shoulder_yaw_joint=+0.54609 rad, right_wrist_pitch_joint=-0.51825 rad, right_shoulder_yaw_joint=-0.51330 rad, left_wrist_pitch_joint=-0.51010 rad, right_shoulder_roll_joint=+0.22968 rad, left_shoulder_roll_joint=-0.20763 rad, waist_pitch_joint=-0.06438 rad",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "ce5d6c1da6194bc4a0099368cf70e6c2": {
+    "id": "ce5d6c1da6194bc4a0099368cf70e6c2",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Native gateway rejected trajectory: held reference cannot safely blend to trajectory start: waist_pitch_joint",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "ede3d6533eaa46ff868ee5c20cb842ed": {
+    "id": "ede3d6533eaa46ff868ee5c20cb842ed",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Stationary/endpoint wait expired; no trajectory resend",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "696db627f4eb45ab978664d38cf2a1f6": {
+    "id": "696db627f4eb45ab978664d38cf2a1f6",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "FAILED",
+      "message": "Live pose differs from the reviewed preparation; no ARM sent; preflight=/home/unitree/rh56dfx/workspace/build/mode5_pull_live_20261123_101406/preflight.json; tolerance=0.050 rad; right_wrist_roll_joint=-1.51235 rad, left_wrist_roll_joint=+1.43238 rad, left_elbow_joint=-1.39906 rad, right_elbow_joint=-1.39808 rad, right_shoulder_pitch_joint=+0.83820 rad, left_shoulder_pitch_joint=+0.82828 rad, left_wrist_yaw_joint=+0.65207 rad, left_shoulder_yaw_joint=+0.57885 rad, right_wrist_yaw_joint=-0.56794 rad, right_shoulder_yaw_joint=-0.54396 rad, right_wrist_pitch_joint=-0.52003 rad, left_wrist_pitch_joint=-0.50984 rad, right_shoulder_roll_joint=+0.23183 rad, left_shoulder_roll_joint=-0.20673 rad",
+      "stop_confirmed": true,
+      "requires_recovery": true,
+      "automatic_recovery": false
+    }
+  },
+  "372590e896d040eb8b3977f53dc0631c": {
+    "id": "372590e896d040eb8b3977f53dc0631c",
+    "kind": "initialize",
+    "action": null,
+    "status": "DONE",
+    "events": [],
+    "result": {
+      "status": "SUCCEEDED",
+      "external_signal_verified": false
+    }
+  },
+  "bf7424a3a16047ce95103353479fac1d": {
+    "id": "bf7424a3a16047ce95103353479fac1d",
+    "kind": "action",
+    "action": "pull",
+    "status": "DONE",
+    "events": [
+      {
+        "status": "RUNNING",
+        "stage": 1,
+        "label": "align to pinned task start",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      },
+      {
+        "status": "RUNNING",
+        "stage": 2,
+        "label": "pull hand open",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      },
+      {
+        "status": "RUNNING",
+        "stage": 3,
+        "label": "pull continuous motion 2",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      },
+      {
+        "status": "RUNNING",
+        "stage": 4,
+        "label": "pull hand pull_grip",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      },
+      {
+        "status": "RUNNING",
+        "stage": 5,
+        "label": "pull continuous motion 4",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      },
+      {
+        "status": "RUNNING",
+        "stage": 6,
+        "label": "pull hand open",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      },
+      {
+        "status": "RUNNING",
+        "stage": 7,
+        "label": "pull continuous motion 6",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      }
+    ],
+    "result": {
+      "status": "SUCCEEDED",
+      "evidence": [
+        {
+          "label": "align to pinned task start",
+          "result": {
+            "status": 4,
+            "error_code": 0,
+            "message": "guarded trajectory completed; holding final pose"
+          }
+        },
+        {
+          "label": "pull hand open",
+          "result": {
+            "success": true,
+            "hand_target_required": true,
+            "grasp_verified": false
+          }
+        },
+        {
+          "label": "pull continuous motion 2",
+          "result": {
+            "status": 4,
+            "error_code": 0,
+            "message": "guarded trajectory completed; holding final pose"
+          }
+        },
+        {
+          "label": "pull hand pull_grip",
+          "result": {
+            "success": true,
+            "hand_target_required": true,
+            "grasp_verified": false
+          }
+        },
+        {
+          "label": "pull continuous motion 4",
+          "result": {
+            "status": 4,
+            "error_code": 0,
+            "message": "guarded trajectory completed; holding final pose"
+          }
+        },
+        {
+          "label": "pull hand open",
+          "result": {
+            "success": true,
+            "hand_target_required": true,
+            "grasp_verified": false
+          }
+        },
+        {
+          "label": "pull continuous motion 6",
+          "result": {
+            "status": 4,
+            "error_code": 0,
+            "message": "guarded trajectory completed; holding final pose"
+          }
+        }
+      ],
+      "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d",
+      "external_signal_verified": false
+    }
+  },
+  "40bf0960a20b4899ad11b10735b66b4e": {
+    "id": "40bf0960a20b4899ad11b10735b66b4e",
+    "kind": "action",
+    "action": "pull",
+    "status": "DONE",
+    "events": [
+      {
+        "status": "RUNNING",
+        "stage": 1,
+        "label": "align to pinned task start",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      },
+      {
+        "status": "RUNNING",
+        "stage": 2,
+        "label": "pull hand open",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      },
+      {
+        "status": "RUNNING",
+        "stage": 3,
+        "label": "pull continuous motion 2",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      },
+      {
+        "status": "RUNNING",
+        "stage": 4,
+        "label": "pull hand pull_grip",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      },
+      {
+        "status": "RUNNING",
+        "stage": 5,
+        "label": "pull continuous motion 4",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      },
+      {
+        "status": "RUNNING",
+        "stage": 6,
+        "label": "pull hand open",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      },
+      {
+        "status": "RUNNING",
+        "stage": 7,
+        "label": "pull continuous motion 6",
+        "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d"
+      }
+    ],
+    "result": {
+      "status": "SUCCEEDED",
+      "evidence": [
+        {
+          "label": "align to pinned task start",
+          "result": {
+            "status": "ALREADY_ALIGNED",
+            "max_error_rad": 0.0025406628847122192,
+            "tolerance_rad": 0.005,
+            "trajectory_sent": false
+          }
+        },
+        {
+          "label": "pull hand open",
+          "result": {
+            "success": true,
+            "hand_target_required": true,
+            "grasp_verified": false
+          }
+        },
+        {
+          "label": "pull continuous motion 2",
+          "result": {
+            "status": 4,
+            "error_code": 0,
+            "message": "guarded trajectory completed; holding final pose"
+          }
+        },
+        {
+          "label": "pull hand pull_grip",
+          "result": {
+            "success": true,
+            "hand_target_required": true,
+            "grasp_verified": false
+          }
+        },
+        {
+          "label": "pull continuous motion 4",
+          "result": {
+            "status": 4,
+            "error_code": 0,
+            "message": "guarded trajectory completed; holding final pose"
+          }
+        },
+        {
+          "label": "pull hand open",
+          "result": {
+            "success": true,
+            "hand_target_required": true,
+            "grasp_verified": false
+          }
+        },
+        {
+          "label": "pull continuous motion 6",
+          "result": {
+            "status": 4,
+            "error_code": 0,
+            "message": "guarded trajectory completed; holding final pose"
+          }
+        }
+      ],
+      "release_sha256": "6e18941fafceb2efaf248ce158125fd26d01668b42fb41b071d66d1d0496c84d",
+      "external_signal_verified": false
+    }
+  }
+}

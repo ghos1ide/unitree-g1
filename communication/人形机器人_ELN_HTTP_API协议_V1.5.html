@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="RONG4SLpE68GEUk1tIVPWu">
+<head data-page-node-id="ttfCrjQchbSvEa5PnwCgvS">
+<meta charset="utf-8" data-page-node-id="cvGB2VBo8fKaTmqssGdCvf">
+<meta name="viewport" content="width=device-width,initial-scale=1" data-page-node-id="cpeiaMelGauJOksBQDmAL7">
+<title>人形机器人与ELN基本控制HTTP接口协议 V1.5</title>
+<style>
+:root{color-scheme:light;--blue:#174a7e;--line:#cfd8e3;--text:#20262e}
+*{box-sizing:border-box}body{margin:0;background:#eef2f6;color:var(--text);font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.75}
+main{width:min(980px,calc(100% - 32px));margin:28px auto;background:#fff;padding:54px 64px;box-shadow:0 8px 28px rgba(34,53,74,.12);border-radius:8px}
+h1{color:var(--blue);font-size:26px;text-align:center;margin:0 0 30px;border-bottom:2px solid var(--blue);padding-bottom:16px}
+h2{color:var(--blue);font-size:21px;margin:32px 0 12px;border-left:5px solid var(--blue);padding-left:10px}
+h3{color:#285f93;font-size:17px;margin:24px 0 10px}p{margin:8px 0}ul{margin:7px 0 12px;padding-left:28px}
+pre{background:#f5f7f9;border:1px solid #d8e0e8;border-left:4px solid #5b84ad;border-radius:5px;padding:13px 16px;white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.65 Consolas,Monaco,monospace;margin:10px 0 16px}
+table{width:100%;border-collapse:collapse;margin:12px 0 20px;font-size:14px}th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:#eaf1f8;color:#173e65;font-weight:700}tr:nth-child(even) td{background:#fafbfd}
+.notice{background:#eef6ff;border:1px solid #bed6ee;border-radius:5px;padding:10px 14px;margin:12px 0}
+@media(max-width:700px){main{width:100%;margin:0;padding:28px 18px;border-radius:0}table{display:block;overflow-x:auto}}
+@media print{body{background:#fff}main{width:auto;margin:0;padding:0;box-shadow:none}h2{break-after:avoid}table,pre{break-inside:avoid}}
+</style>
+</head>
+<body data-page-node-id="NPzl2QaS4gYNWo3bna0wVS"><main data-page-node-id="13aGVCERRjJbVA4kKzJTDv">
+<h1 data-page-node-id="1ZkLzPuFMUGNn4B43eAaTU">ELN 基本控制 HTTP 接口协议</h1>
+<p data-page-node-id="MhaCyHWMgUnrJTOVtSCmJD">版本：V1.5</p>
+<table data-page-node-id="kV4FR2xCQaFShDIVylB6Gu">
+<tr data-page-node-id="CRcsRmUFAVQcYF0QTTE9AJ"><th data-page-node-id="ly3ryvmoTh5H9nIcvgDVgM">通信方式</th><th data-page-node-id="RAthZCB4e3GYlB0L4jqwdk">HTTP/HTTPS + JSON，全部业务接口使用 POST</th></tr>
+<tr data-page-node-id="zQ9up7PFFTbIe5TZFbpBag"><td data-page-node-id="pw77M9E8gHK8U5BH3LBN33">调用方向</td><td data-page-node-id="dKm9f8za1198WAjrp5DNOc">ELN 下发任务；机器人回调任务状态</td></tr>
+<tr data-page-node-id="Y6DR5NmkbOIRHDHkvPJWe9"><td data-page-node-id="YExTT84qAUpqJh1PFQBfED">字符编码</td><td data-page-node-id="iSvOdCjc3LAp6KzVAKCB8m">UTF-8</td></tr>
+</table>
+
+<h2 data-page-node-id="Gt9FiaQUECW3cwW9OxFrSj">1. 通用约定</h2>
+<p data-page-node-id="JfSEvurGgdtUYlaABLPxtn">ELN 调用机器人服务地址：<code data-page-node-id="GyGqVQp0c38MOwFXVh2flQ">https://{robot-host}/api/v1</code>。机器人回调 ELN 地址由 ELN 在任务请求中提供。</p>
+<table data-page-node-id="4dLoLTHp2vQ2UHQUNc341w">
+<tr data-page-node-id="cAK67xegK6MhFC3wXED5PE"><th data-page-node-id="vhMGZxKhOPJYWTCSWDlFyb">请求头</th><th data-page-node-id="z2F4WAj3gIFLw003BXDfCG">说明</th></tr>
+<tr data-page-node-id="DFzfB9MQKBQOFkPdTUVD7x"><td data-page-node-id="U0T5GG8pwr4j2bBTHQx3pB">Content-Type</td><td data-page-node-id="LtxZr9z019BPqFUJRmWosE">application/json</td></tr>
+</table>
+<p data-page-node-id="Yq53IGAwRwDzbB1wAmsoKc">时间统一采用 ISO 8601 格式，例如：<code data-page-node-id="cqMJumhTYJWoYwlvHROeAo">2026-09-20T17:00:00+08:00</code>。</p>
+
+<h2 data-page-node-id="QBkYG1fipBty7zdTp94VHc">2. 机器人初始化接口</h2>
+<pre data-page-node-id="Zm2bQBodO8nG7KCElQ4GD9"><code data-page-node-id="Z5GEGbVFW0FIS9o57nqzue">POST /api/v1/robot/initialize</code></pre>
+<p data-page-node-id="BwUaBinaFfcVaTnuZK5lnn">ELN 在执行控制任务前调用该接口，使机器人完成基础自检、执行机构回零和控制系统准备。</p>
+<pre data-page-node-id="U6cZ15rKeadx4m1jRVQZcW"><code data-page-node-id="meXsztn2CqcNucTRufC9Ye">{
+  "taskId": "INIT-20260920-0001",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status"
+}</code></pre>
+<p data-page-node-id="gtz3FjDrzyhDmbSEcLGX0G">接收响应：</p>
+<pre data-page-node-id="DoYYDaOd8uTqZIxdAGJzPf"><code data-page-node-id="zOf04mzGczCA3PWKu0z1mH">{
+  "code": 0,
+  "message": "accepted",
+  "taskId": "INIT-20260920-0001",
+  "status": "ACCEPTED"
+}</code></pre>
+<p data-page-node-id="DBpDOYbuXViDp8yfTx7QKT">该响应只表示初始化任务已接收。初始化状态通过统一回调接口上报，<code data-page-node-id="cgPKBzI8ONOgQsyjebAn94">taskType</code> 固定为 <code data-page-node-id="WDtnHCoJl5X4TMkkMjBByc">ROBOT_INITIALIZE</code>；开始时 <code data-page-node-id="DZlOZBxa2KoNzikfD3tYMK">progress=0</code>，完成时 <code data-page-node-id="K8qFFTeCDQhriwI1JOeDN6">progress=1</code>。</p>
+
+<h2 data-page-node-id="bppQEiWv4MyWKkEFtnLxoT">3. 控制任务下发接口</h2>
+<pre data-page-node-id="rBqpHtU3xEJtpRwL2eS3YS"><code data-page-node-id="yxEq4TsHsIVDiw8nMxROS9">POST /api/v1/tasks</code></pre>
+<h3 data-page-node-id="aQlHTELTlPY3EWmr1g5Mhc">3.1 通用请求结构</h3>
+<pre data-page-node-id="5wPcDDA7QMTHZ7YlSVDiTV"><code data-page-node-id="LWgAzlM9w4N0MUNuJ2DHgv">{
+  "taskId": "TASK-20260920-0001",
+  "taskType": "NWS_CYCLE",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "count": 20
+  }
+}</code></pre>
+<table data-page-node-id="j2BnfEnLiLLjR5lYrISfUD">
+<tr data-page-node-id="OmzuRG30xvLMrC7AjSk3wM"><th data-page-node-id="aSPT38VqM3AnqEloMSEoXl">字段</th><th data-page-node-id="yq09fZXSFTlJ2Cj7yFYiCt">类型</th><th data-page-node-id="TyFL0uLK8opqC8JRQNjeMV">必填</th><th data-page-node-id="GOa6lhwdzy4WFwZmgmpJuu">说明</th></tr>
+<tr data-page-node-id="ZvhkJSLtdsi0UXV6NG3WR9"><td data-page-node-id="HsgvlG9v6kKQDzuTFVmdr7">taskId</td><td data-page-node-id="Y0p8boipcBfVIF7kjsLrEO">string</td><td data-page-node-id="cdlnCUamfVRLcflLSqamFO">是</td><td data-page-node-id="Yu90TRiJJou3NOuGzWTGyD">ELN 生成的唯一任务号；相同 taskId 不得重复执行</td></tr>
+<tr data-page-node-id="Riqnb4RkMJd5Yn9YzhYJCE"><td data-page-node-id="uirLTiFekhwpUsvFBNXEx1">taskType</td><td data-page-node-id="VxcrBGKv2RkFNWnNngv5Z2">string</td><td data-page-node-id="BwkDmynkrBYGDI5CBdyAR0">是</td><td data-page-node-id="J4qz64hbp7BPnOAAhHQaYe">任务类型：NWS_CYCLE、NLG_WOW_OPERATION 或 GEAR_OPERATION</td></tr>
+<tr data-page-node-id="kBX0EQrCtjpQlDUxS8GkY8"><td data-page-node-id="fFt83UWW34KWiQ13rWFLrn">callbackUrl</td><td data-page-node-id="AdNXKUMvlLtJFe1vNLtkYJ">string</td><td data-page-node-id="eWRzRHFEeJKsxEwteFCvcS">是</td><td data-page-node-id="D1dmG9xmuCVSKK7zelGFc2">机器人上报状态的 ELN 地址</td></tr>
+<tr data-page-node-id="CCsMRYECFFWzOf3bKyYIA2"><td data-page-node-id="LugwfryDwv1iQGAkEE1Xvg">parameters</td><td data-page-node-id="lAMcnF3Tig2WkRmkxVPv5S">object</td><td data-page-node-id="PMV9Fuu6rQX2kOJxNqR55b">是</td><td data-page-node-id="1Hka8Bkj4yPA62HPMK9hDj">任务参数，定义见第 4 章</td></tr>
+</table>
+
+<h3 data-page-node-id="5gcm4ieWrOzXoVaHrFjCTu">3.2 接收响应</h3>
+<pre data-page-node-id="SY6G64idAnQbwnorwSQkFM"><code data-page-node-id="xrMCPUuhFG9kOLV9QLtMzW">{
+  "code": 0,
+  "message": "accepted",
+  "taskId": "TASK-20260920-0001",
+  "status": "ACCEPTED"
+}</code></pre>
+<p data-page-node-id="vuCTSgGq9aJxreIzUWAHLA">该响应只表示任务已接收，不表示动作已经完成。</p>
+
+<h2 data-page-node-id="5iunsJYWoGbm28BSk6yqHU">4. 控制任务参数</h2>
+<h3 data-page-node-id="658xCxiW1lnHEltbZHiR0i">4.1 前轮转弯连续动作</h3>
+<pre data-page-node-id="oNjcZZ4pxvLYai3dE1jamn"><code data-page-node-id="j8VqaMqAbOMSvwwtMqE8ce">taskType = NWS_CYCLE</code></pre>
+<pre data-page-node-id="U6B5dVtfYmcx4y9w5YDEKB"><code data-page-node-id="EfDcDfgaCGFbPKT4djgHI4">{
+  "taskId": "TASK-20260920-0001",
+  "taskType": "NWS_CYCLE",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "count": 20
+  }
+}</code></pre>
+<table data-page-node-id="gyiC5Bf9Sc3RhfqdVRyR3f">
+<tr data-page-node-id="vSt8bvCXTuOgKHoLlI0XyC"><th data-page-node-id="4xLl8P6CC31Ec0GzEZPVwt">字段</th><th data-page-node-id="AhEVj6kQDdyjT23uYm8XAt">类型</th><th data-page-node-id="qY4wzhAUvXdEKEGnMmiCjh">说明</th></tr>
+<tr data-page-node-id="X7XBuYc37tpTDifxCmHL6o"><td data-page-node-id="oBYQg1vzvBnOTkGGflxEVT">count</td><td data-page-node-id="X6bh7A5E2q7tAXbTXrp8ae">integer</td><td data-page-node-id="YEnSTEp1fmF79L7Xj2Arlq">需要完成的前轮转弯操作次数，必须为正整数</td></tr>
+</table>
+<div class="notice" data-page-node-id="ow1KqTUlgLxaQ77s8TbQFm"><strong data-page-node-id="S29RCQ04QAINemJ3DGexvi">计数规则：</strong>前轮完成“左旋一次 + 右旋一次”后，视为完成 1 次操作，<code data-page-node-id="mF8n80Y7miaVfRhgQCRHoM">progress</code> 加 1。单独完成左旋或右旋均不计为一次完整操作。</div>
+<p data-page-node-id="XjI103s5pfKqAJF2zKuYsH">机器人按照本地预设的全行程动作曲线连续执行。若 <code data-page-node-id="KY0DXD5oYEi1atZvSzvlHI">count=20</code>，则应完成 20 组“左旋一次 + 右旋一次”，共包含 20 次左旋和 20 次右旋。</p>
+
+<h3 data-page-node-id="UekpC37h9sJ7pEQmntS7RI">4.2 前起落架承重与 WOW 信号模拟</h3>
+<pre data-page-node-id="IEqJxwRBVRCZB13RLj6qE7"><code data-page-node-id="fNsCZLDFHoV1MtVVhwwih1">taskType = NLG_WOW_OPERATION</code></pre>
+<p data-page-node-id="O469sDqwTqCqcWaZFaLc2M">模拟空中状态：</p>
+<pre data-page-node-id="LwyCs3BnrnWohDQMB5a6SS"><code data-page-node-id="5kpBakSAx3hHBONoE7EIEw">{
+  "taskId": "TASK-20260920-0002",
+  "taskType": "NLG_WOW_OPERATION",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "wowSignal": "AIR"
+  }
+}</code></pre>
+<p data-page-node-id="6EtP0evp3RCyCx2SzoQFo4">模拟地面状态：</p>
+<pre data-page-node-id="ZSLiHVIS2rbM6vbqNl7jie"><code data-page-node-id="s3oT1lkneHHGUWA7OnnnWG">{
+  "taskId": "TASK-20260920-0003",
+  "taskType": "NLG_WOW_OPERATION",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "wowSignal": "GROUND"
+  }
+}</code></pre>
+<table data-page-node-id="SMgKa7TstniYvV2ZtMCVEy">
+<tr data-page-node-id="SnXpfvERV5LqAxYwBuHEgx"><th data-page-node-id="zALitBd5ERPeIV1rSQD8Hn">字段</th><th data-page-node-id="111jB4reocSJOCLDeDD5Pc">类型</th><th data-page-node-id="hfcF7wbgodNSDFbXV2Vdq2">说明</th></tr>
+<tr data-page-node-id="G5G7drkpKKSzWqfCDeRH1E"><td data-page-node-id="7rZloRqAoH5gJpxhVmb0bC">wowSignal</td><td data-page-node-id="1OfPtlGeybezE2caXcmoRb">string</td><td data-page-node-id="fFiIlgYYTAeDk2F4FBM0bQ">目标 WOW 状态：AIR 表示空中；GROUND 表示地面</td></tr>
+</table>
+<p data-page-node-id="1VSUMaw7AipvlsA07W81c1">WOW 信号达到目标状态后，任务才可上报成功，完成时 <code data-page-node-id="CF0VwEJEtF7uSyzexlxqOg">progress=1</code>。</p>
+
+<h3 data-page-node-id="4FfGb3GLZUM47EFj8kALMf">4.3 起落架连续收放</h3>
+<pre data-page-node-id="wZYudHLNESgimDEdRyDKeh"><code data-page-node-id="yuNjbRTEXzk5L9XPTDUBPj">taskType = GEAR_OPERATION</code></pre>
+<p data-page-node-id="7rEn5XoEx7iPB61AzFLZEi">标准完整循环示例：</p>
+<pre data-page-node-id="PJq5QoDqYMa4rCkqNoAMW3"><code data-page-node-id="NZRxhGkVeU6Xxyad5AVJnv">{
+  "taskId": "TASK-20260920-0004",
+  "taskType": "GEAR_OPERATION",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "count": 5,
+    "preAction": "NONE",
+    "cycleMode": "FULL_CYCLE"
+  }
+}</code></pre>
+<p data-page-node-id="c56xbuEohfvotZOLJKEm1L">最后一次仅收起示例：</p>
+<pre data-page-node-id="racSVpFoM5VbJIsIf0NzqG"><code data-page-node-id="FTQZVqSmKTeDocKvq4tY0D">{
+  "taskId": "TASK-20260920-0005",
+  "taskType": "GEAR_OPERATION",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "count": 5,
+    "preAction": "NONE",
+    "cycleMode": "FINAL_RETRACT_ONLY"
+  }
+}</code></pre>
+<p data-page-node-id="zE2qcE8idTy9djqbMtialu">正式计数前先放下示例：</p>
+<pre data-page-node-id="ENVLhEWAMDkwsw3vWdgQdu"><code data-page-node-id="4pnHy8drDZFlieWQTqBzlm">{
+  "taskId": "TASK-20260920-0006",
+  "taskType": "GEAR_OPERATION",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "count": 5,
+    "preAction": "EXTEND_DOWNLOCK",
+    "cycleMode": "FULL_CYCLE"
+  }
+}</code></pre>
+<table data-page-node-id="G63ffsFvHkYD5JFhDUoGTd">
+<tr data-page-node-id="fCNpvHJ55V8GAMH2HKhtyf"><th data-page-node-id="qGc9mo6ZpBpghDw17c77F1">字段</th><th data-page-node-id="SKC0vlQqLlHAeuW8h4FXxV">类型</th><th data-page-node-id="mVihZYDy54nFedM29YGvYB">说明</th></tr>
+<tr data-page-node-id="HMPj84a4GOtUrIpsx2bNfu"><td data-page-node-id="GP7yqcOxIuFHddERbSOhdS">count</td><td data-page-node-id="uGfxq4wLpDUdAiVBLMUfZw">integer</td><td data-page-node-id="F815kF02X4lLQox0iZL2PR">需要完成的起落架操作次数，必须为正整数</td></tr>
+<tr data-page-node-id="lxl0fs1eHjCTcVNDkzp5pd"><td data-page-node-id="LYRYzwVARQFlJIM0ydjqbQ">preAction</td><td data-page-node-id="UfvHQAPlAZGehPmwB8tgs6">string</td><td data-page-node-id="eAS10dCrUMwVDZNPQmCzBq">NONE：无预动作；EXTEND_DOWNLOCK：正式计数前先放下并确认下位锁上锁，预动作不计数</td></tr>
+<tr data-page-node-id="ADC0uQBvmHtXr7dtI7Ovz5"><td data-page-node-id="WNoqkHmkzSGChtS2zeBa2O">cycleMode</td><td data-page-node-id="F3K7jld5fNaI6yZGncHF82">string</td><td data-page-node-id="1tawBGl3HbnirqFxUkiVm4">FULL_CYCLE：每次执行完整“收起→放下”，任务完成时起落架处于下位锁上锁状态；FINAL_RETRACT_ONLY：前 count-1 次执行完整循环，最后一次仅收起，任务完成时起落架处于上位锁上锁状态</td></tr>
+</table>
+<p data-page-node-id="RWjlCt5rMdwmNXcFs1Hovy"><code data-page-node-id="kogh3N3lUOOD4z6pD14zYF">FULL_CYCLE</code> 模式下，每完成一次“收起→放下”且确认下位锁上锁，<code data-page-node-id="kg7lveH8EqibZ5ZUSQ3aby">progress</code> 加 1。<code data-page-node-id="05NkBfufCwr3tNQRneyG7I">FINAL_RETRACT_ONLY</code> 模式下，前 <code data-page-node-id="pKaiQTKJ13dRE72iQ5i5Iw">count-1</code> 次按完整循环计数；最后一次在收起并确认上位锁上锁后计数，且不得继续放下。</p>
+
+<h2 data-page-node-id="HrrnDkkClXGUjxAVOdjHbG">5. 状态回调接口</h2>
+<p data-page-node-id="d2wsRHRHdMeYkpLLf3ApdG">机器人在任务状态变化或已完成次数变化时调用 ELN：</p>
+<pre data-page-node-id="d5QoIuhttnq2MCc7BfHgxv"><code data-page-node-id="WMaS4bwb7xo3aoDlAl2B7M">POST {callbackUrl}</code></pre>
+<pre data-page-node-id="4ko0SByy13R5xjnmx7ZUzm"><code data-page-node-id="nCTqJ8xOPFYMRc1Cw7vCpB">{
+  "taskId": "TASK-20260920-0001",
+  "taskType": "NWS_CYCLE",
+  "status": "RUNNING",
+  "progress": 8,
+  "message": "已完成8/20次前轮转弯操作",
+  "timestamp": "2026-09-20T17:00:00+08:00",
+  "errorCode": null
+}</code></pre>
+
+<h3 data-page-node-id="6GK57SbYTwkMjMPHZ8YGOc">5.1 回调触发时机</h3>
+<ul data-page-node-id="FWwHj22eH71pLpcbjNSRJm">
+<li data-page-node-id="i85DClWuV9tJzKq37Wejk7">任务被机器人接收后，上报 ACCEPTED。</li>
+<li data-page-node-id="yV4NB1kmK0I4dbqT8m74yv">机器人开始执行时，上报 RUNNING，progress=0。</li>
+<li data-page-node-id="xIdaZlnFtsao5k66XI65xL">NWS_CYCLE 每完成一组“左旋一次 + 右旋一次”，progress 加 1。</li>
+<li data-page-node-id="42CFxK5Rzvhdkw6gyeX6NW">NLG_WOW_OPERATION 在 WOW 信号达到目标状态后，progress 更新为 1。</li>
+<li data-page-node-id="nxlofDklAi1kDIUqgDfTfD">GEAR_OPERATION 按对应循环模式的完整计数条件更新 progress。</li>
+<li data-page-node-id="4IGuONFj3rDFvTaNPY5mtB">正常完成后上报 SUCCEEDED；失败上报 FAILED；完成受控取消后上报 CANCELLED。</li>
+</ul>
+<p data-page-node-id="QDOxYWF8B8wV0zXxyr8ZJ2">推荐状态流转：<code data-page-node-id="68hlj6Wj7RY3aM6NDaU0AE">ACCEPTED → RUNNING → SUCCEEDED / FAILED / CANCELLED</code>。最终状态不得回退。</p>
+
+<h3 data-page-node-id="1yFOxSB9hN8vlUAdEm1OE8">5.2 回调字段说明</h3>
+<table data-page-node-id="DRMC7Dj6cBZaUC2gyg03Nl">
+<tr data-page-node-id="BDpOXPQPV13PdSz2wQHiKg"><th data-page-node-id="ebJrC6lH2XsdNXNih6Ec4V">字段</th><th data-page-node-id="fP9kSrk21wF3DX3ms6ECJk">类型</th><th data-page-node-id="tQSHWoIJ4Q0JXaB9Z2ixSj">必填</th><th data-page-node-id="FxyIpWoRSW3IP7UvIbUadu">说明</th></tr>
+<tr data-page-node-id="wqXomNsTFELeBHBw8x6nI5"><td data-page-node-id="U3rwkezzmPq3aO6HsXQm2l">taskId</td><td data-page-node-id="9bAs0bEvAmaDToV1xZLhUa">string</td><td data-page-node-id="dLZeamdBocrdodabzb1Fbx">是</td><td data-page-node-id="vDVE05BTw27vFWtIwXFYov">ELN 下发的任务唯一编号，机器人原样返回</td></tr>
+<tr data-page-node-id="AKnHpVQd4CFAYpQ2r5dCV5"><td data-page-node-id="6yaJn16PYwLyW67y3CZBpG">taskType</td><td data-page-node-id="4dpZHB5kBvwA7g9odfRGF6">string</td><td data-page-node-id="TLdPIdLovIpYDglfvw6Gqb">是</td><td data-page-node-id="GsN8LMslPAkvIK2Hfszlui">任务类型</td></tr>
+<tr data-page-node-id="eHRlBXudhHoyGqOqoapbt6"><td data-page-node-id="BGW4CQ2udbhSScdyijU7GJ">status</td><td data-page-node-id="p4o9pZaioOCJ9X73OJ7zBt">string</td><td data-page-node-id="qOJu9P9tCS5I5MLntc0Uhx">是</td><td data-page-node-id="4D9riGB5Gjen9xTrCSzxlX">ACCEPTED、RUNNING、SUCCEEDED、FAILED 或 CANCELLED</td></tr>
+<tr data-page-node-id="WDO4LmTgvsPYcIiN40HK0f"><td data-page-node-id="C3aKXOTgOHK3TlHr9HL3nd">progress</td><td data-page-node-id="TZKhIzHBQnlzYkmu9xncCM">integer</td><td data-page-node-id="3X8vhDxAIQdnidzzXXq3VQ">是</td><td data-page-node-id="opzg4r3ebUnRgvM2wegxfA">已完成次数，不是百分比</td></tr>
+<tr data-page-node-id="ppTqGd3jnhHY34icxhyAAV"><td data-page-node-id="o4FRiCERmCPwdnqdTqBWiN">message</td><td data-page-node-id="3r6MCYssNbGahmrHrMHDNJ">string</td><td data-page-node-id="9G7eW8SNg6csIBq7bLYPtF">是</td><td data-page-node-id="qzawAkYyYXpFBWEBFLJ19K">可读状态说明，建议包含当前动作、已完成次数和总次数</td></tr>
+<tr data-page-node-id="smBOebEkiGzCAFTxkHnlz0"><td data-page-node-id="ZKFl0gSVJauapHlRlBHytz">timestamp</td><td data-page-node-id="jnOFEJca9mV48tioNCaoZ0">string</td><td data-page-node-id="lMSAf3TuQWDxZp4fDDSVKN">是</td><td data-page-node-id="li0Be6PQJbgsW2Y6i0BH9s">状态产生时间，ISO 8601 格式并包含时区</td></tr>
+<tr data-page-node-id="X37T8an2KQ2ofh7L5p1dIh"><td data-page-node-id="u3bCkevAV7iD4vfKLJeKiO">errorCode</td><td data-page-node-id="bNONkqnk9fwWRaOaGs2WdO">string/null</td><td data-page-node-id="zFVHxOY8nO8GZTWBl5hMEe">是</td><td data-page-node-id="TI8GTrJJ8U9AFNDOxcuJgi">非失败状态填写 null；FAILED 时填写业务错误码</td></tr>
+</table>
+
+<h3 data-page-node-id="ITuY9YHnckDti95wtzcBrW">5.3 progress 填写规则</h3>
+<ul data-page-node-id="xLbosZM1OnxdWlI7Y09GcA">
+<li data-page-node-id="hPBYU42gMsIM4RmqJHF2gk">NWS_CYCLE：每完成一组“左旋一次 + 右旋一次”加 1；只完成其中一个方向时不增加。</li>
+<li data-page-node-id="Vdn1YSZrEwAOHbqQtbI21F">NLG_WOW_OPERATION：开始时为 0；WOW 信号达到目标状态后为 1。</li>
+<li data-page-node-id="Uj614LVeKZD4DypMJaVWWA">GEAR_OPERATION：按照 cycleMode 定义的完成条件计数；preAction 不计数。</li>
+<li data-page-node-id="UyfGGWXpEXNCHMirZqmB8o">FAILED 或 CANCELLED 时，progress 保留停止前已经完整完成的次数；未完成的当前动作不得计数。</li>
+</ul>
+
+<h3 data-page-node-id="M2bvmPZUEYvQMf3bVfEeZd">5.4 回调应答</h3>
+<pre data-page-node-id="WvYtbSeAnh4Gc2l8B6h4XT"><code data-page-node-id="MCAVzVf3nGZLfLs75cMwOj">{
+  "code": 0,
+  "message": "received"
+}</code></pre>
+<p data-page-node-id="JSXUWi9kA2bHqt6vQoJYQE"><code data-page-node-id="WhdPx95vAc0WMQDUvMzw4Z">code=0</code> 表示 ELN 已接收回调。机器人未收到成功应答时可重复发送；ELN 应依据 <code data-page-node-id="uHkEqRFnv4GCy42PveI7cE">taskId + status + progress + timestamp</code> 去重。</p>
+
+<h2 data-page-node-id="jFLBJWZljC5l7vqkcDgzAP">6. 查询与取消</h2>
+<pre data-page-node-id="LGECGWfNT00qfPRGj9FDKQ"><code data-page-node-id="ugaVFXPsDU5eV992cdyvN6">POST /api/v1/tasks/{taskId}/query</code></pre>
+<p data-page-node-id="YVgcnAy12HQDpsP2UZudia">查询任务当前状态和已完成次数。</p>
+<pre data-page-node-id="5Q4c9huDhAgDS1X4EqeZeg"><code data-page-node-id="09ycg2BItzGC6pHlaByJJX">POST /api/v1/tasks/{taskId}/cancel</code></pre>
+<pre data-page-node-id="yVPDWreJfwWxNrYxFdQrQK"><code data-page-node-id="UfeTgln0KX26AOnhTjaJP2">{ "reason": "ELN operator cancelled" }</code></pre>
+<p data-page-node-id="ZFWHUlkF7Now1wAP9DYeqb">取消是受控停止请求。机器人无法立即安全停止时，应完成安全停机流程，并通过回调返回最终状态。</p>
+
+<h2 data-page-node-id="qFi5d0JluOu7dJADoHk67C">7. 统一错误码</h2>
+<table data-page-node-id="9LLLuGgbGgBedNj9oWr4bE">
+<tr data-page-node-id="eTSA9BuvKfQK5KK7zZ7lP0"><th data-page-node-id="E1HgY6j133aV0vVYIctrfW">code</th><th data-page-node-id="dCbsRu1QvH0KmsMZudGvmV">说明</th></tr>
+<tr data-page-node-id="8WFCZPNlRHfhHn5hQCsTqc"><td data-page-node-id="gsvYPwCWrerifBFc1fTOec">0</td><td data-page-node-id="ra90RKNJhMdAZpiTqjriTb">成功或已接收</td></tr>
+<tr data-page-node-id="yiw5Yy87E0KEBvHkBalW0m"><td data-page-node-id="rKKEnnJaOc4aduoGMHREsw">1001</td><td data-page-node-id="hAbEIFJXFFufqnCytNS3MH">参数错误</td></tr>
+<tr data-page-node-id="79ZM8xETeqLC8A9HqoZfRl"><td data-page-node-id="AMmo4qmFF3Q0x9q53tEXEj">1002</td><td data-page-node-id="9RAYio3SeI50NkfhPJbctF">未授权</td></tr>
+<tr data-page-node-id="feuhV6DTEDgZE03u9mKbh0"><td data-page-node-id="MtetiOrlMmYCo9NG6Pjn4E">1003</td><td data-page-node-id="08sOq0U68fWBGYsvcYQEMY">任务号重复</td></tr>
+<tr data-page-node-id="WA3etSGYeg1dCc1ADVRidL"><td data-page-node-id="mlKEaknocc5QnwXBXgZodA">2001</td><td data-page-node-id="8EHVwTN359kctCp0keu80d">机器人忙</td></tr>
+<tr data-page-node-id="ktHeLCCqhSzAJ6HW0HITvq"><td data-page-node-id="D4U1hPprKH22S0BG4kpIU0">2002</td><td data-page-node-id="d0sXgbzI2AqMDptMqVym6I">安全条件不满足</td></tr>
+<tr data-page-node-id="5XIZzWs7fdqWly5iL62kPn"><td data-page-node-id="uGn1qNqaI4JKWDXJzpRqkW">2003</td><td data-page-node-id="ltCAVLrTzdFrSTonsJcqe9">初始化未完成</td></tr>
+<tr data-page-node-id="hR5Ae4ZqyDNaHoLeNnQwZ6"><td data-page-node-id="KZ3bTNff5GC1Weexo1OHsQ">2004</td><td data-page-node-id="FNDrYYdzpiioeRSZOCeK18">执行机构故障</td></tr>
+</table>
+
+<h2 data-page-node-id="DXQjkoHzPjwwLBqfonh9bz">8. 安全与执行要求</h2>
+<ul data-page-node-id="wrbU7xNFPonHAeTnSySsvZ">
+<li data-page-node-id="GPqMZWZLhzrl19BHlEti9o">起落架收起或放下动作只有在对应上位锁或下位锁确认后，才可判定该阶段完成。</li>
+<li data-page-node-id="bvXvwl6FD11fTfN5DeCD5d">FINAL_RETRACT_ONLY 的最后一次确认上位锁后必须停止，不得自动继续放下。</li>
+<li data-page-node-id="JZrU5HMehZaqBTO2RytKdw">EXTEND_DOWNLOCK 预动作必须确认下位锁上锁后，才可开始正式计数。</li>
+<li data-page-node-id="fTVBFWu1dhIT6VKSEAkkPb">NLG_WOW_OPERATION 必须校验 WOW 信号是否达到目标状态；未达到目标不得上报成功。</li>
+<li data-page-node-id="yhoVNW9uBo9aHx7lZ3BBfR">安全联锁、硬件急停或人员进入危险区域时，机器人应停止后续动作，并按实际已完成次数回调 FAILED 或 CANCELLED。</li>
+</ul>
+</main></body>
+</html>

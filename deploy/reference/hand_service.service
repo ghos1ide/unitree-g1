@@ -1,0 +1,21 @@
+[Unit]
+Description=RH56 dexterous hand control service
+After=network-online.target
+Wants=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=unitree
+Group=unitree
+SupplementaryGroups=dialout
+WorkingDirectory=/home/unitree/rh56dfx/workspace
+ExecStart=/home/unitree/rh56dfx/workspace/build/src/hand_service --execute --hand both --network eth0
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=15
+KillMode=control-group
+UMask=0002
+
+[Install]
+WantedBy=multi-user.target

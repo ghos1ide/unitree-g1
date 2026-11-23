@@ -1,0 +1,2635 @@
+{
+  "payload": {
+    "schema": 2,
+    "contract": "g1-recorded-actions-v2",
+    "version": "cloud-test-v1",
+    "created_at": "2026-09-22T11:39:00.667737+00:00",
+    "hardware_enabled": false,
+    "release_kind": "full",
+    "actions": {
+      "dring_left": {
+        "source": "test/left_1",
+        "plan": {
+          "kind": "dring_demo",
+          "arm": "left",
+          "hardware_executable": true,
+          "demo": {
+            "operation": "left_1",
+            "full_cycle": true,
+            "revision": 0,
+            "config_sha256": "c1be601e967408f55e14cdfe373af0a33a2c5df2669adda4e06f41792b592422"
+          },
+          "planning_config": {
+            "values": {}
+          },
+          "segments": [
+            {
+              "kind": "arm",
+              "side": "left",
+              "label": "alignment",
+              "duration": 1.0,
+              "trajectory": {
+                "joint_names": [
+                  "left_shoulder_pitch_joint",
+                  "left_shoulder_roll_joint",
+                  "left_shoulder_yaw_joint",
+                  "left_elbow_joint",
+                  "left_wrist_roll_joint",
+                  "left_wrist_pitch_joint",
+                  "left_wrist_yaw_joint",
+                  "waist_yaw_joint"
+                ],
+                "points": [
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 0,
+                      "nanosec": 0
+                    }
+                  },
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 1,
+                      "nanosec": 0
+                    }
+                  }
+                ]
+              },
+              "start": {
+                "left_shoulder_pitch_joint": 0.0,
+                "left_shoulder_roll_joint": 0.0,
+                "left_shoulder_yaw_joint": 0.0,
+                "left_elbow_joint": 0.0,
+                "left_wrist_roll_joint": 0.0,
+                "left_wrist_pitch_joint": 0.0,
+                "left_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "end": {
+                "left_shoulder_pitch_joint": 0.0,
+                "left_shoulder_roll_joint": 0.0,
+                "left_shoulder_yaw_joint": 0.0,
+                "left_elbow_joint": 0.0,
+                "left_wrist_roll_joint": 0.0,
+                "left_wrist_pitch_joint": 0.0,
+                "left_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "stage": "prepare"
+            },
+            {
+              "kind": "arm",
+              "side": "left",
+              "label": "recording",
+              "recording_fit": {
+                "ok": true
+              },
+              "duration": 1.0,
+              "trajectory": {
+                "joint_names": [
+                  "left_shoulder_pitch_joint",
+                  "left_shoulder_roll_joint",
+                  "left_shoulder_yaw_joint",
+                  "left_elbow_joint",
+                  "left_wrist_roll_joint",
+                  "left_wrist_pitch_joint",
+                  "left_wrist_yaw_joint",
+                  "waist_yaw_joint"
+                ],
+                "points": [
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 0,
+                      "nanosec": 0
+                    }
+                  },
+                  {
+                    "positions": [
+                      0.1,
+                      0.1,
+                      0.1,
+                      0.1,
+                      0.1,
+                      0.1,
+                      0.1,
+                      0.1
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 1,
+                      "nanosec": 0
+                    }
+                  }
+                ]
+              },
+              "start": {
+                "left_shoulder_pitch_joint": 0.0,
+                "left_shoulder_roll_joint": 0.0,
+                "left_shoulder_yaw_joint": 0.0,
+                "left_elbow_joint": 0.0,
+                "left_wrist_roll_joint": 0.0,
+                "left_wrist_pitch_joint": 0.0,
+                "left_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "end": {
+                "left_shoulder_pitch_joint": 0.1,
+                "left_shoulder_roll_joint": 0.1,
+                "left_shoulder_yaw_joint": 0.1,
+                "left_elbow_joint": 0.1,
+                "left_wrist_roll_joint": 0.1,
+                "left_wrist_pitch_joint": 0.1,
+                "left_wrist_yaw_joint": 0.1,
+                "waist_yaw_joint": 0.1
+              }
+            }
+          ]
+        },
+        "teaching": {
+          "identity": {
+            "robot_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "hand_mapping": {
+              "order": [
+                "little_1",
+                "ring_1",
+                "middle_1",
+                "index_1",
+                "thumb_2",
+                "thumb_1"
+              ],
+              "open": [
+                0.13430029546065,
+                0.13430029546065,
+                0.13430029546065,
+                0.13430029546065,
+                0.0,
+                0.0
+              ],
+              "closed": [
+                1.2,
+                1.2,
+                1.2,
+                1.2,
+                0.4,
+                0.8
+              ]
+            }
+          },
+          "traces": {}
+        },
+        "execution": null,
+        "result": null,
+        "verification": "planned",
+        "program": [
+          {
+            "label": "alignment",
+            "side": "left",
+            "duration": 1.0,
+            "kind": "join",
+            "target": {
+              "left_shoulder_pitch_joint": 0.0,
+              "left_shoulder_roll_joint": 0.0,
+              "left_shoulder_yaw_joint": 0.0,
+              "left_elbow_joint": 0.0,
+              "left_wrist_roll_joint": 0.0,
+              "left_wrist_pitch_joint": 0.0,
+              "left_wrist_yaw_joint": 0.0,
+              "waist_yaw_joint": 0.0
+            },
+            "reference_trajectory_sha256": "d8965140c124f428c1f7eb8df7e31a7cb97205c358f1857e62a1efef6157cbbb",
+            "profile": "normal"
+          },
+          {
+            "label": "recording",
+            "side": "left",
+            "duration": 1.0,
+            "kind": "recorded",
+            "trajectory": {
+              "joint_names": [
+                "left_shoulder_pitch_joint",
+                "left_shoulder_roll_joint",
+                "left_shoulder_yaw_joint",
+                "left_elbow_joint",
+                "left_wrist_roll_joint",
+                "left_wrist_pitch_joint",
+                "left_wrist_yaw_joint",
+                "waist_yaw_joint"
+              ],
+              "points": [
+                {
+                  "positions": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "velocities": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "accelerations": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "time_from_start": {
+                    "sec": 0,
+                    "nanosec": 0
+                  }
+                },
+                {
+                  "positions": [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                  ],
+                  "velocities": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "accelerations": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "time_from_start": {
+                    "sec": 1,
+                    "nanosec": 0
+                  }
+                }
+              ]
+            },
+            "trajectory_sha256": "5c2180ae50d2ab53c2337ab72c8bbc187636d3033fbebeccb7280111158af38c",
+            "profile": "withdraw"
+          }
+        ],
+        "source_plan_sha256": "6ef2d577fd062bee7c665c177c32c1532285e6d8e1ac9abe8d86cb9dd95e2995",
+        "evidence_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "identity": {
+          "robot_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "hand_mapping": {
+            "order": [
+              "little_1",
+              "ring_1",
+              "middle_1",
+              "index_1",
+              "thumb_2",
+              "thumb_1"
+            ],
+            "open": [
+              0.13430029546065,
+              0.13430029546065,
+              0.13430029546065,
+              0.13430029546065,
+              0.0,
+              0.0
+            ],
+            "closed": [
+              1.2,
+              1.2,
+              1.2,
+              1.2,
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      "dring_right": {
+        "source": "test/right_1",
+        "plan": {
+          "kind": "dring_demo",
+          "arm": "left",
+          "hardware_executable": true,
+          "demo": {
+            "operation": "right_1",
+            "full_cycle": true,
+            "revision": 0,
+            "config_sha256": "c1be601e967408f55e14cdfe373af0a33a2c5df2669adda4e06f41792b592422"
+          },
+          "planning_config": {
+            "values": {}
+          },
+          "segments": [
+            {
+              "kind": "arm",
+              "side": "left",
+              "label": "alignment",
+              "duration": 1.0,
+              "trajectory": {
+                "joint_names": [
+                  "left_shoulder_pitch_joint",
+                  "left_shoulder_roll_joint",
+                  "left_shoulder_yaw_joint",
+                  "left_elbow_joint",
+                  "left_wrist_roll_joint",
+                  "left_wrist_pitch_joint",
+                  "left_wrist_yaw_joint",
+                  "waist_yaw_joint"
+                ],
+                "points": [
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 0,
+                      "nanosec": 0
+                    }
+                  },
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 1,
+                      "nanosec": 0
+                    }
+                  }
+                ]
+              },
+              "start": {
+                "left_shoulder_pitch_joint": 0.0,
+                "left_shoulder_roll_joint": 0.0,
+                "left_shoulder_yaw_joint": 0.0,
+                "left_elbow_joint": 0.0,
+                "left_wrist_roll_joint": 0.0,
+                "left_wrist_pitch_joint": 0.0,
+                "left_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "end": {
+                "left_shoulder_pitch_joint": 0.0,
+                "left_shoulder_roll_joint": 0.0,
+                "left_shoulder_yaw_joint": 0.0,
+                "left_elbow_joint": 0.0,
+                "left_wrist_roll_joint": 0.0,
+                "left_wrist_pitch_joint": 0.0,
+                "left_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "stage": "prepare"
+            },
+            {
+              "kind": "arm",
+              "side": "left",
+              "label": "recording",
+              "recording_fit": {
+                "ok": true
+              },
+              "duration": 1.0,
+              "trajectory": {
+                "joint_names": [
+                  "left_shoulder_pitch_joint",
+                  "left_shoulder_roll_joint",
+                  "left_shoulder_yaw_joint",
+                  "left_elbow_joint",
+                  "left_wrist_roll_joint",
+                  "left_wrist_pitch_joint",
+                  "left_wrist_yaw_joint",
+                  "waist_yaw_joint"
+                ],
+                "points": [
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 0,
+                      "nanosec": 0
+                    }
+                  },
+                  {
+                    "positions": [
+                      0.11,
+                      0.11,
+                      0.11,
+                      0.11,
+                      0.11,
+                      0.11,
+                      0.11,
+                      0.11
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 1,
+                      "nanosec": 0
+                    }
+                  }
+                ]
+              },
+              "start": {
+                "left_shoulder_pitch_joint": 0.0,
+                "left_shoulder_roll_joint": 0.0,
+                "left_shoulder_yaw_joint": 0.0,
+                "left_elbow_joint": 0.0,
+                "left_wrist_roll_joint": 0.0,
+                "left_wrist_pitch_joint": 0.0,
+                "left_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "end": {
+                "left_shoulder_pitch_joint": 0.11,
+                "left_shoulder_roll_joint": 0.11,
+                "left_shoulder_yaw_joint": 0.11,
+                "left_elbow_joint": 0.11,
+                "left_wrist_roll_joint": 0.11,
+                "left_wrist_pitch_joint": 0.11,
+                "left_wrist_yaw_joint": 0.11,
+                "waist_yaw_joint": 0.11
+              }
+            }
+          ]
+        },
+        "teaching": {
+          "identity": {
+            "robot_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "hand_mapping": {
+              "order": [
+                "little_1",
+                "ring_1",
+                "middle_1",
+                "index_1",
+                "thumb_2",
+                "thumb_1"
+              ],
+              "open": [
+                0.13430029546065,
+                0.13430029546065,
+                0.13430029546065,
+                0.13430029546065,
+                0.0,
+                0.0
+              ],
+              "closed": [
+                1.2,
+                1.2,
+                1.2,
+                1.2,
+                0.4,
+                0.8
+              ]
+            }
+          },
+          "traces": {}
+        },
+        "execution": null,
+        "result": null,
+        "verification": "planned",
+        "program": [
+          {
+            "label": "alignment",
+            "side": "left",
+            "duration": 1.0,
+            "kind": "join",
+            "target": {
+              "left_shoulder_pitch_joint": 0.0,
+              "left_shoulder_roll_joint": 0.0,
+              "left_shoulder_yaw_joint": 0.0,
+              "left_elbow_joint": 0.0,
+              "left_wrist_roll_joint": 0.0,
+              "left_wrist_pitch_joint": 0.0,
+              "left_wrist_yaw_joint": 0.0,
+              "waist_yaw_joint": 0.0
+            },
+            "reference_trajectory_sha256": "d8965140c124f428c1f7eb8df7e31a7cb97205c358f1857e62a1efef6157cbbb",
+            "profile": "normal"
+          },
+          {
+            "label": "recording",
+            "side": "left",
+            "duration": 1.0,
+            "kind": "recorded",
+            "trajectory": {
+              "joint_names": [
+                "left_shoulder_pitch_joint",
+                "left_shoulder_roll_joint",
+                "left_shoulder_yaw_joint",
+                "left_elbow_joint",
+                "left_wrist_roll_joint",
+                "left_wrist_pitch_joint",
+                "left_wrist_yaw_joint",
+                "waist_yaw_joint"
+              ],
+              "points": [
+                {
+                  "positions": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "velocities": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "accelerations": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "time_from_start": {
+                    "sec": 0,
+                    "nanosec": 0
+                  }
+                },
+                {
+                  "positions": [
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11,
+                    0.11
+                  ],
+                  "velocities": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "accelerations": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "time_from_start": {
+                    "sec": 1,
+                    "nanosec": 0
+                  }
+                }
+              ]
+            },
+            "trajectory_sha256": "836ab6d8975f2f0d30dba97247178ef0aca07368ab54c4d2ee77479ce8392c97",
+            "profile": "withdraw"
+          }
+        ],
+        "source_plan_sha256": "f9d894f359bff9200faae30743b8ba78a2beabec512f662e3d03c93789571dbb",
+        "evidence_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "identity": {
+          "robot_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "hand_mapping": {
+            "order": [
+              "little_1",
+              "ring_1",
+              "middle_1",
+              "index_1",
+              "thumb_2",
+              "thumb_1"
+            ],
+            "open": [
+              0.13430029546065,
+              0.13430029546065,
+              0.13430029546065,
+              0.13430029546065,
+              0.0,
+              0.0
+            ],
+            "closed": [
+              1.2,
+              1.2,
+              1.2,
+              1.2,
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      "gear_above_to_lower": {
+        "source": "test/above_to_lower",
+        "plan": {
+          "kind": "dring_demo",
+          "arm": "right",
+          "hardware_executable": true,
+          "demo": {
+            "operation": "above_to_lower",
+            "full_cycle": false,
+            "revision": 0,
+            "config_sha256": "c1be601e967408f55e14cdfe373af0a33a2c5df2669adda4e06f41792b592422",
+            "workflow": "landing_gear"
+          },
+          "planning_config": {
+            "values": {}
+          },
+          "segments": [
+            {
+              "kind": "arm",
+              "side": "right",
+              "label": "alignment",
+              "duration": 1.0,
+              "trajectory": {
+                "joint_names": [
+                  "right_shoulder_pitch_joint",
+                  "right_shoulder_roll_joint",
+                  "right_shoulder_yaw_joint",
+                  "right_elbow_joint",
+                  "right_wrist_roll_joint",
+                  "right_wrist_pitch_joint",
+                  "right_wrist_yaw_joint",
+                  "waist_yaw_joint"
+                ],
+                "points": [
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 0,
+                      "nanosec": 0
+                    }
+                  },
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 1,
+                      "nanosec": 0
+                    }
+                  }
+                ]
+              },
+              "start": {
+                "right_shoulder_pitch_joint": 0.0,
+                "right_shoulder_roll_joint": 0.0,
+                "right_shoulder_yaw_joint": 0.0,
+                "right_elbow_joint": 0.0,
+                "right_wrist_roll_joint": 0.0,
+                "right_wrist_pitch_joint": 0.0,
+                "right_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "end": {
+                "right_shoulder_pitch_joint": 0.0,
+                "right_shoulder_roll_joint": 0.0,
+                "right_shoulder_yaw_joint": 0.0,
+                "right_elbow_joint": 0.0,
+                "right_wrist_roll_joint": 0.0,
+                "right_wrist_pitch_joint": 0.0,
+                "right_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "stage": "prepare"
+            },
+            {
+              "kind": "arm",
+              "side": "right",
+              "label": "recording",
+              "recording_fit": {
+                "ok": true
+              },
+              "duration": 1.0,
+              "trajectory": {
+                "joint_names": [
+                  "right_shoulder_pitch_joint",
+                  "right_shoulder_roll_joint",
+                  "right_shoulder_yaw_joint",
+                  "right_elbow_joint",
+                  "right_wrist_roll_joint",
+                  "right_wrist_pitch_joint",
+                  "right_wrist_yaw_joint",
+                  "waist_yaw_joint"
+                ],
+                "points": [
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 0,
+                      "nanosec": 0
+                    }
+                  },
+                  {
+                    "positions": [
+                      0.12000000000000001,
+                      0.12000000000000001,
+                      0.12000000000000001,
+                      0.12000000000000001,
+                      0.12000000000000001,
+                      0.12000000000000001,
+                      0.12000000000000001,
+                      0.12000000000000001
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 1,
+                      "nanosec": 0
+                    }
+                  }
+                ]
+              },
+              "start": {
+                "right_shoulder_pitch_joint": 0.0,
+                "right_shoulder_roll_joint": 0.0,
+                "right_shoulder_yaw_joint": 0.0,
+                "right_elbow_joint": 0.0,
+                "right_wrist_roll_joint": 0.0,
+                "right_wrist_pitch_joint": 0.0,
+                "right_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "end": {
+                "right_shoulder_pitch_joint": 0.12000000000000001,
+                "right_shoulder_roll_joint": 0.12000000000000001,
+                "right_shoulder_yaw_joint": 0.12000000000000001,
+                "right_elbow_joint": 0.12000000000000001,
+                "right_wrist_roll_joint": 0.12000000000000001,
+                "right_wrist_pitch_joint": 0.12000000000000001,
+                "right_wrist_yaw_joint": 0.12000000000000001,
+                "waist_yaw_joint": 0.12000000000000001
+              }
+            }
+          ]
+        },
+        "teaching": {
+          "identity": {
+            "robot_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "hand_mapping": {
+              "order": [
+                "little_1",
+                "ring_1",
+                "middle_1",
+                "index_1",
+                "thumb_2",
+                "thumb_1"
+              ],
+              "open": [
+                0.13430029546065,
+                0.13430029546065,
+                0.13430029546065,
+                0.13430029546065,
+                0.0,
+                0.0
+              ],
+              "closed": [
+                1.2,
+                1.2,
+                1.2,
+                1.2,
+                0.4,
+                0.8
+              ]
+            }
+          },
+          "traces": {}
+        },
+        "execution": null,
+        "result": null,
+        "verification": "planned",
+        "program": [
+          {
+            "label": "alignment",
+            "side": "right",
+            "duration": 1.0,
+            "kind": "join",
+            "target": {
+              "right_shoulder_pitch_joint": 0.0,
+              "right_shoulder_roll_joint": 0.0,
+              "right_shoulder_yaw_joint": 0.0,
+              "right_elbow_joint": 0.0,
+              "right_wrist_roll_joint": 0.0,
+              "right_wrist_pitch_joint": 0.0,
+              "right_wrist_yaw_joint": 0.0,
+              "waist_yaw_joint": 0.0
+            },
+            "reference_trajectory_sha256": "38355006c9090965c68ec6299230e46de83013cff5e2fea928cfa62d41be36ba",
+            "profile": "normal"
+          },
+          {
+            "label": "recording",
+            "side": "right",
+            "duration": 1.0,
+            "kind": "recorded",
+            "trajectory": {
+              "joint_names": [
+                "right_shoulder_pitch_joint",
+                "right_shoulder_roll_joint",
+                "right_shoulder_yaw_joint",
+                "right_elbow_joint",
+                "right_wrist_roll_joint",
+                "right_wrist_pitch_joint",
+                "right_wrist_yaw_joint",
+                "waist_yaw_joint"
+              ],
+              "points": [
+                {
+                  "positions": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "velocities": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "accelerations": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "time_from_start": {
+                    "sec": 0,
+                    "nanosec": 0
+                  }
+                },
+                {
+                  "positions": [
+                    0.12000000000000001,
+                    0.12000000000000001,
+                    0.12000000000000001,
+                    0.12000000000000001,
+                    0.12000000000000001,
+                    0.12000000000000001,
+                    0.12000000000000001,
+                    0.12000000000000001
+                  ],
+                  "velocities": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "accelerations": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "time_from_start": {
+                    "sec": 1,
+                    "nanosec": 0
+                  }
+                }
+              ]
+            },
+            "trajectory_sha256": "0b46063e1b2c52f9764fc9ec0a916482ea389646ca0fa8ba7dcf3e917904586e",
+            "profile": "withdraw"
+          }
+        ],
+        "source_plan_sha256": "b97f86359f7e6db4358b6ed3c28f090ee399d064b6e583bb3297393ba14b8750",
+        "evidence_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "identity": {
+          "robot_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "hand_mapping": {
+            "order": [
+              "little_1",
+              "ring_1",
+              "middle_1",
+              "index_1",
+              "thumb_2",
+              "thumb_1"
+            ],
+            "open": [
+              0.13430029546065,
+              0.13430029546065,
+              0.13430029546065,
+              0.13430029546065,
+              0.0,
+              0.0
+            ],
+            "closed": [
+              1.2,
+              1.2,
+              1.2,
+              1.2,
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      "gear_above_to_upper": {
+        "source": "test/above_to_upper",
+        "plan": {
+          "kind": "dring_demo",
+          "arm": "right",
+          "hardware_executable": true,
+          "demo": {
+            "operation": "above_to_upper",
+            "full_cycle": false,
+            "revision": 0,
+            "config_sha256": "c1be601e967408f55e14cdfe373af0a33a2c5df2669adda4e06f41792b592422",
+            "workflow": "landing_gear"
+          },
+          "planning_config": {
+            "values": {}
+          },
+          "segments": [
+            {
+              "kind": "arm",
+              "side": "right",
+              "label": "alignment",
+              "duration": 1.0,
+              "trajectory": {
+                "joint_names": [
+                  "right_shoulder_pitch_joint",
+                  "right_shoulder_roll_joint",
+                  "right_shoulder_yaw_joint",
+                  "right_elbow_joint",
+                  "right_wrist_roll_joint",
+                  "right_wrist_pitch_joint",
+                  "right_wrist_yaw_joint",
+                  "waist_yaw_joint"
+                ],
+                "points": [
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 0,
+                      "nanosec": 0
+                    }
+                  },
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 1,
+                      "nanosec": 0
+                    }
+                  }
+                ]
+              },
+              "start": {
+                "right_shoulder_pitch_joint": 0.0,
+                "right_shoulder_roll_joint": 0.0,
+                "right_shoulder_yaw_joint": 0.0,
+                "right_elbow_joint": 0.0,
+                "right_wrist_roll_joint": 0.0,
+                "right_wrist_pitch_joint": 0.0,
+                "right_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "end": {
+                "right_shoulder_pitch_joint": 0.0,
+                "right_shoulder_roll_joint": 0.0,
+                "right_shoulder_yaw_joint": 0.0,
+                "right_elbow_joint": 0.0,
+                "right_wrist_roll_joint": 0.0,
+                "right_wrist_pitch_joint": 0.0,
+                "right_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "stage": "prepare"
+            },
+            {
+              "kind": "arm",
+              "side": "right",
+              "label": "recording",
+              "recording_fit": {
+                "ok": true
+              },
+              "duration": 1.0,
+              "trajectory": {
+                "joint_names": [
+                  "right_shoulder_pitch_joint",
+                  "right_shoulder_roll_joint",
+                  "right_shoulder_yaw_joint",
+                  "right_elbow_joint",
+                  "right_wrist_roll_joint",
+                  "right_wrist_pitch_joint",
+                  "right_wrist_yaw_joint",
+                  "waist_yaw_joint"
+                ],
+                "points": [
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 0,
+                      "nanosec": 0
+                    }
+                  },
+                  {
+                    "positions": [
+                      0.13,
+                      0.13,
+                      0.13,
+                      0.13,
+                      0.13,
+                      0.13,
+                      0.13,
+                      0.13
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 1,
+                      "nanosec": 0
+                    }
+                  }
+                ]
+              },
+              "start": {
+                "right_shoulder_pitch_joint": 0.0,
+                "right_shoulder_roll_joint": 0.0,
+                "right_shoulder_yaw_joint": 0.0,
+                "right_elbow_joint": 0.0,
+                "right_wrist_roll_joint": 0.0,
+                "right_wrist_pitch_joint": 0.0,
+                "right_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "end": {
+                "right_shoulder_pitch_joint": 0.13,
+                "right_shoulder_roll_joint": 0.13,
+                "right_shoulder_yaw_joint": 0.13,
+                "right_elbow_joint": 0.13,
+                "right_wrist_roll_joint": 0.13,
+                "right_wrist_pitch_joint": 0.13,
+                "right_wrist_yaw_joint": 0.13,
+                "waist_yaw_joint": 0.13
+              }
+            }
+          ]
+        },
+        "teaching": {
+          "identity": {
+            "robot_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "hand_mapping": {
+              "order": [
+                "little_1",
+                "ring_1",
+                "middle_1",
+                "index_1",
+                "thumb_2",
+                "thumb_1"
+              ],
+              "open": [
+                0.13430029546065,
+                0.13430029546065,
+                0.13430029546065,
+                0.13430029546065,
+                0.0,
+                0.0
+              ],
+              "closed": [
+                1.2,
+                1.2,
+                1.2,
+                1.2,
+                0.4,
+                0.8
+              ]
+            }
+          },
+          "traces": {}
+        },
+        "execution": null,
+        "result": null,
+        "verification": "planned",
+        "program": [
+          {
+            "label": "alignment",
+            "side": "right",
+            "duration": 1.0,
+            "kind": "join",
+            "target": {
+              "right_shoulder_pitch_joint": 0.0,
+              "right_shoulder_roll_joint": 0.0,
+              "right_shoulder_yaw_joint": 0.0,
+              "right_elbow_joint": 0.0,
+              "right_wrist_roll_joint": 0.0,
+              "right_wrist_pitch_joint": 0.0,
+              "right_wrist_yaw_joint": 0.0,
+              "waist_yaw_joint": 0.0
+            },
+            "reference_trajectory_sha256": "38355006c9090965c68ec6299230e46de83013cff5e2fea928cfa62d41be36ba",
+            "profile": "normal"
+          },
+          {
+            "label": "recording",
+            "side": "right",
+            "duration": 1.0,
+            "kind": "recorded",
+            "trajectory": {
+              "joint_names": [
+                "right_shoulder_pitch_joint",
+                "right_shoulder_roll_joint",
+                "right_shoulder_yaw_joint",
+                "right_elbow_joint",
+                "right_wrist_roll_joint",
+                "right_wrist_pitch_joint",
+                "right_wrist_yaw_joint",
+                "waist_yaw_joint"
+              ],
+              "points": [
+                {
+                  "positions": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "velocities": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "accelerations": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "time_from_start": {
+                    "sec": 0,
+                    "nanosec": 0
+                  }
+                },
+                {
+                  "positions": [
+                    0.13,
+                    0.13,
+                    0.13,
+                    0.13,
+                    0.13,
+                    0.13,
+                    0.13,
+                    0.13
+                  ],
+                  "velocities": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "accelerations": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "time_from_start": {
+                    "sec": 1,
+                    "nanosec": 0
+                  }
+                }
+              ]
+            },
+            "trajectory_sha256": "7305b56649a0c783990f4bca703f6dc9817d36e6293f876b852437b7884da215",
+            "profile": "withdraw"
+          }
+        ],
+        "source_plan_sha256": "ae9972ff3450ee8e86ea00b46a8ed9b4dbceb45a748ee7b9f85f515c49b8ee25",
+        "evidence_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "identity": {
+          "robot_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "hand_mapping": {
+            "order": [
+              "little_1",
+              "ring_1",
+              "middle_1",
+              "index_1",
+              "thumb_2",
+              "thumb_1"
+            ],
+            "open": [
+              0.13430029546065,
+              0.13430029546065,
+              0.13430029546065,
+              0.13430029546065,
+              0.0,
+              0.0
+            ],
+            "closed": [
+              1.2,
+              1.2,
+              1.2,
+              1.2,
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      "gear_lower_to_upper": {
+        "source": "test/lower_to_upper",
+        "plan": {
+          "kind": "dring_demo",
+          "arm": "right",
+          "hardware_executable": true,
+          "demo": {
+            "operation": "lower_to_upper",
+            "full_cycle": false,
+            "revision": 0,
+            "config_sha256": "c1be601e967408f55e14cdfe373af0a33a2c5df2669adda4e06f41792b592422",
+            "workflow": "landing_gear"
+          },
+          "planning_config": {
+            "values": {}
+          },
+          "segments": [
+            {
+              "kind": "arm",
+              "side": "right",
+              "label": "alignment",
+              "duration": 1.0,
+              "trajectory": {
+                "joint_names": [
+                  "right_shoulder_pitch_joint",
+                  "right_shoulder_roll_joint",
+                  "right_shoulder_yaw_joint",
+                  "right_elbow_joint",
+                  "right_wrist_roll_joint",
+                  "right_wrist_pitch_joint",
+                  "right_wrist_yaw_joint",
+                  "waist_yaw_joint"
+                ],
+                "points": [
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 0,
+                      "nanosec": 0
+                    }
+                  },
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 1,
+                      "nanosec": 0
+                    }
+                  }
+                ]
+              },
+              "start": {
+                "right_shoulder_pitch_joint": 0.0,
+                "right_shoulder_roll_joint": 0.0,
+                "right_shoulder_yaw_joint": 0.0,
+                "right_elbow_joint": 0.0,
+                "right_wrist_roll_joint": 0.0,
+                "right_wrist_pitch_joint": 0.0,
+                "right_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "end": {
+                "right_shoulder_pitch_joint": 0.0,
+                "right_shoulder_roll_joint": 0.0,
+                "right_shoulder_yaw_joint": 0.0,
+                "right_elbow_joint": 0.0,
+                "right_wrist_roll_joint": 0.0,
+                "right_wrist_pitch_joint": 0.0,
+                "right_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "stage": "prepare"
+            },
+            {
+              "kind": "arm",
+              "side": "right",
+              "label": "recording",
+              "recording_fit": {
+                "ok": true
+              },
+              "duration": 1.0,
+              "trajectory": {
+                "joint_names": [
+                  "right_shoulder_pitch_joint",
+                  "right_shoulder_roll_joint",
+                  "right_shoulder_yaw_joint",
+                  "right_elbow_joint",
+                  "right_wrist_roll_joint",
+                  "right_wrist_pitch_joint",
+                  "right_wrist_yaw_joint",
+                  "waist_yaw_joint"
+                ],
+                "points": [
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 0,
+                      "nanosec": 0
+                    }
+                  },
+                  {
+                    "positions": [
+                      0.14,
+                      0.14,
+                      0.14,
+                      0.14,
+                      0.14,
+                      0.14,
+                      0.14,
+                      0.14
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 1,
+                      "nanosec": 0
+                    }
+                  }
+                ]
+              },
+              "start": {
+                "right_shoulder_pitch_joint": 0.0,
+                "right_shoulder_roll_joint": 0.0,
+                "right_shoulder_yaw_joint": 0.0,
+                "right_elbow_joint": 0.0,
+                "right_wrist_roll_joint": 0.0,
+                "right_wrist_pitch_joint": 0.0,
+                "right_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "end": {
+                "right_shoulder_pitch_joint": 0.14,
+                "right_shoulder_roll_joint": 0.14,
+                "right_shoulder_yaw_joint": 0.14,
+                "right_elbow_joint": 0.14,
+                "right_wrist_roll_joint": 0.14,
+                "right_wrist_pitch_joint": 0.14,
+                "right_wrist_yaw_joint": 0.14,
+                "waist_yaw_joint": 0.14
+              }
+            }
+          ]
+        },
+        "teaching": {
+          "identity": {
+            "robot_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "hand_mapping": {
+              "order": [
+                "little_1",
+                "ring_1",
+                "middle_1",
+                "index_1",
+                "thumb_2",
+                "thumb_1"
+              ],
+              "open": [
+                0.13430029546065,
+                0.13430029546065,
+                0.13430029546065,
+                0.13430029546065,
+                0.0,
+                0.0
+              ],
+              "closed": [
+                1.2,
+                1.2,
+                1.2,
+                1.2,
+                0.4,
+                0.8
+              ]
+            }
+          },
+          "traces": {}
+        },
+        "execution": null,
+        "result": null,
+        "verification": "planned",
+        "program": [
+          {
+            "label": "alignment",
+            "side": "right",
+            "duration": 1.0,
+            "kind": "join",
+            "target": {
+              "right_shoulder_pitch_joint": 0.0,
+              "right_shoulder_roll_joint": 0.0,
+              "right_shoulder_yaw_joint": 0.0,
+              "right_elbow_joint": 0.0,
+              "right_wrist_roll_joint": 0.0,
+              "right_wrist_pitch_joint": 0.0,
+              "right_wrist_yaw_joint": 0.0,
+              "waist_yaw_joint": 0.0
+            },
+            "reference_trajectory_sha256": "38355006c9090965c68ec6299230e46de83013cff5e2fea928cfa62d41be36ba",
+            "profile": "normal"
+          },
+          {
+            "label": "recording",
+            "side": "right",
+            "duration": 1.0,
+            "kind": "recorded",
+            "trajectory": {
+              "joint_names": [
+                "right_shoulder_pitch_joint",
+                "right_shoulder_roll_joint",
+                "right_shoulder_yaw_joint",
+                "right_elbow_joint",
+                "right_wrist_roll_joint",
+                "right_wrist_pitch_joint",
+                "right_wrist_yaw_joint",
+                "waist_yaw_joint"
+              ],
+              "points": [
+                {
+                  "positions": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "velocities": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "accelerations": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "time_from_start": {
+                    "sec": 0,
+                    "nanosec": 0
+                  }
+                },
+                {
+                  "positions": [
+                    0.14,
+                    0.14,
+                    0.14,
+                    0.14,
+                    0.14,
+                    0.14,
+                    0.14,
+                    0.14
+                  ],
+                  "velocities": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "accelerations": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "time_from_start": {
+                    "sec": 1,
+                    "nanosec": 0
+                  }
+                }
+              ]
+            },
+            "trajectory_sha256": "355c1c96b54c83f1bd73a60a66e7459b27e11300052ed768a6bd65cda786ddd1",
+            "profile": "withdraw"
+          }
+        ],
+        "source_plan_sha256": "b7f9a2cdf66b5f88eca68ac25b557306fd391bc929eb5ef85cf359279890b326",
+        "evidence_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "identity": {
+          "robot_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "hand_mapping": {
+            "order": [
+              "little_1",
+              "ring_1",
+              "middle_1",
+              "index_1",
+              "thumb_2",
+              "thumb_1"
+            ],
+            "open": [
+              0.13430029546065,
+              0.13430029546065,
+              0.13430029546065,
+              0.13430029546065,
+              0.0,
+              0.0
+            ],
+            "closed": [
+              1.2,
+              1.2,
+              1.2,
+              1.2,
+              0.4,
+              0.8
+            ]
+          }
+        }
+      },
+      "gear_upper_to_lower": {
+        "source": "test/upper_to_lower",
+        "plan": {
+          "kind": "dring_demo",
+          "arm": "right",
+          "hardware_executable": true,
+          "demo": {
+            "operation": "upper_to_lower",
+            "full_cycle": false,
+            "revision": 0,
+            "config_sha256": "c1be601e967408f55e14cdfe373af0a33a2c5df2669adda4e06f41792b592422",
+            "workflow": "landing_gear"
+          },
+          "planning_config": {
+            "values": {}
+          },
+          "segments": [
+            {
+              "kind": "arm",
+              "side": "right",
+              "label": "alignment",
+              "duration": 1.0,
+              "trajectory": {
+                "joint_names": [
+                  "right_shoulder_pitch_joint",
+                  "right_shoulder_roll_joint",
+                  "right_shoulder_yaw_joint",
+                  "right_elbow_joint",
+                  "right_wrist_roll_joint",
+                  "right_wrist_pitch_joint",
+                  "right_wrist_yaw_joint",
+                  "waist_yaw_joint"
+                ],
+                "points": [
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 0,
+                      "nanosec": 0
+                    }
+                  },
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 1,
+                      "nanosec": 0
+                    }
+                  }
+                ]
+              },
+              "start": {
+                "right_shoulder_pitch_joint": 0.0,
+                "right_shoulder_roll_joint": 0.0,
+                "right_shoulder_yaw_joint": 0.0,
+                "right_elbow_joint": 0.0,
+                "right_wrist_roll_joint": 0.0,
+                "right_wrist_pitch_joint": 0.0,
+                "right_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "end": {
+                "right_shoulder_pitch_joint": 0.0,
+                "right_shoulder_roll_joint": 0.0,
+                "right_shoulder_yaw_joint": 0.0,
+                "right_elbow_joint": 0.0,
+                "right_wrist_roll_joint": 0.0,
+                "right_wrist_pitch_joint": 0.0,
+                "right_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "stage": "prepare"
+            },
+            {
+              "kind": "arm",
+              "side": "right",
+              "label": "recording",
+              "recording_fit": {
+                "ok": true
+              },
+              "duration": 1.0,
+              "trajectory": {
+                "joint_names": [
+                  "right_shoulder_pitch_joint",
+                  "right_shoulder_roll_joint",
+                  "right_shoulder_yaw_joint",
+                  "right_elbow_joint",
+                  "right_wrist_roll_joint",
+                  "right_wrist_pitch_joint",
+                  "right_wrist_yaw_joint",
+                  "waist_yaw_joint"
+                ],
+                "points": [
+                  {
+                    "positions": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 0,
+                      "nanosec": 0
+                    }
+                  },
+                  {
+                    "positions": [
+                      0.15000000000000002,
+                      0.15000000000000002,
+                      0.15000000000000002,
+                      0.15000000000000002,
+                      0.15000000000000002,
+                      0.15000000000000002,
+                      0.15000000000000002,
+                      0.15000000000000002
+                    ],
+                    "velocities": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "accelerations": [
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0,
+                      0.0
+                    ],
+                    "time_from_start": {
+                      "sec": 1,
+                      "nanosec": 0
+                    }
+                  }
+                ]
+              },
+              "start": {
+                "right_shoulder_pitch_joint": 0.0,
+                "right_shoulder_roll_joint": 0.0,
+                "right_shoulder_yaw_joint": 0.0,
+                "right_elbow_joint": 0.0,
+                "right_wrist_roll_joint": 0.0,
+                "right_wrist_pitch_joint": 0.0,
+                "right_wrist_yaw_joint": 0.0,
+                "waist_yaw_joint": 0.0
+              },
+              "end": {
+                "right_shoulder_pitch_joint": 0.15000000000000002,
+                "right_shoulder_roll_joint": 0.15000000000000002,
+                "right_shoulder_yaw_joint": 0.15000000000000002,
+                "right_elbow_joint": 0.15000000000000002,
+                "right_wrist_roll_joint": 0.15000000000000002,
+                "right_wrist_pitch_joint": 0.15000000000000002,
+                "right_wrist_yaw_joint": 0.15000000000000002,
+                "waist_yaw_joint": 0.15000000000000002
+              }
+            }
+          ]
+        },
+        "teaching": {
+          "identity": {
+            "robot_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "hand_mapping": {
+              "order": [
+                "little_1",
+                "ring_1",
+                "middle_1",
+                "index_1",
+                "thumb_2",
+                "thumb_1"
+              ],
+              "open": [
+                0.13430029546065,
+                0.13430029546065,
+                0.13430029546065,
+                0.13430029546065,
+                0.0,
+                0.0
+              ],
+              "closed": [
+                1.2,
+                1.2,
+                1.2,
+                1.2,
+                0.4,
+                0.8
+              ]
+            }
+          },
+          "traces": {}
+        },
+        "execution": null,
+        "result": null,
+        "verification": "planned",
+        "program": [
+          {
+            "label": "alignment",
+            "side": "right",
+            "duration": 1.0,
+            "kind": "join",
+            "target": {
+              "right_shoulder_pitch_joint": 0.0,
+              "right_shoulder_roll_joint": 0.0,
+              "right_shoulder_yaw_joint": 0.0,
+              "right_elbow_joint": 0.0,
+              "right_wrist_roll_joint": 0.0,
+              "right_wrist_pitch_joint": 0.0,
+              "right_wrist_yaw_joint": 0.0,
+              "waist_yaw_joint": 0.0
+            },
+            "reference_trajectory_sha256": "38355006c9090965c68ec6299230e46de83013cff5e2fea928cfa62d41be36ba",
+            "profile": "normal"
+          },
+          {
+            "label": "recording",
+            "side": "right",
+            "duration": 1.0,
+            "kind": "recorded",
+            "trajectory": {
+              "joint_names": [
+                "right_shoulder_pitch_joint",
+                "right_shoulder_roll_joint",
+                "right_shoulder_yaw_joint",
+                "right_elbow_joint",
+                "right_wrist_roll_joint",
+                "right_wrist_pitch_joint",
+                "right_wrist_yaw_joint",
+                "waist_yaw_joint"
+              ],
+              "points": [
+                {
+                  "positions": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "velocities": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "accelerations": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "time_from_start": {
+                    "sec": 0,
+                    "nanosec": 0
+                  }
+                },
+                {
+                  "positions": [
+                    0.15000000000000002,
+                    0.15000000000000002,
+                    0.15000000000000002,
+                    0.15000000000000002,
+                    0.15000000000000002,
+                    0.15000000000000002,
+                    0.15000000000000002,
+                    0.15000000000000002
+                  ],
+                  "velocities": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "accelerations": [
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0,
+                    0.0
+                  ],
+                  "time_from_start": {
+                    "sec": 1,
+                    "nanosec": 0
+                  }
+                }
+              ]
+            },
+            "trajectory_sha256": "b63afdfecac32946de415c7b60313bc5854c8d90898ef4bba0589fe118459474",
+            "profile": "withdraw"
+          }
+        ],
+        "source_plan_sha256": "2d9231f8c113ff081128e4b46778afdfa1e779e528123ed1d51c5a1bb1976efc",
+        "evidence_sha256": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+        "identity": {
+          "robot_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "hand_mapping": {
+            "order": [
+              "little_1",
+              "ring_1",
+              "middle_1",
+              "index_1",
+              "thumb_2",
+              "thumb_1"
+            ],
+            "open": [
+              0.13430029546065,
+              0.13430029546065,
+              0.13430029546065,
+              0.13430029546065,
+              0.0,
+              0.0
+            ],
+            "closed": [
+              1.2,
+              1.2,
+              1.2,
+              1.2,
+              0.4,
+              0.8
+            ]
+          }
+        }
+      }
+    },
+    "initialization": {
+      "mode": "simultaneous",
+      "velocity_scale": 0.7,
+      "acceleration_scale": 0.7,
+      "target": {
+        "left_shoulder_pitch_joint": 0.0,
+        "left_shoulder_roll_joint": 0.0,
+        "left_shoulder_yaw_joint": 0.0,
+        "left_elbow_joint": 0.0,
+        "left_wrist_roll_joint": 0.0,
+        "left_wrist_pitch_joint": 0.0,
+        "left_wrist_yaw_joint": 0.0,
+        "waist_yaw_joint": 0.0,
+        "right_shoulder_pitch_joint": 0.0,
+        "right_shoulder_roll_joint": 0.0,
+        "right_shoulder_yaw_joint": 0.0,
+        "right_elbow_joint": 0.0,
+        "right_wrist_roll_joint": 0.0,
+        "right_wrist_pitch_joint": 0.0,
+        "right_wrist_yaw_joint": 0.0
+      }
+    },
+    "compatibility": {
+      "hand_control_sha256": "38986df811cc7102683f29109dd5b1c2719d784e17d76132040f2c6d44fde553",
+      "hand_mapping": {
+        "order": [
+          "little_1",
+          "ring_1",
+          "middle_1",
+          "index_1",
+          "thumb_2",
+          "thumb_1"
+        ],
+        "open": [
+          0.13430029546065,
+          0.13430029546065,
+          0.13430029546065,
+          0.13430029546065,
+          0.0,
+          0.0
+        ],
+        "closed": [
+          1.2,
+          1.2,
+          1.2,
+          1.2,
+          0.4,
+          0.8
+        ]
+      }
+    },
+    "mapping": {
+      "AIR": "push",
+      "GROUND": "pull"
+    },
+    "success_semantics": "robot_sequence_completed_without_external_signal_confirmation"
+  },
+  "sha256": "c7e185b474b1dad540d927f9ce8de1e14a5c6cfc125946d2ae974d2b700b7a3f"
+}

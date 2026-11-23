@@ -1,0 +1,28 @@
+[Unit]
+Description=ELN native execution backend on port 8795 (passive startup)
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=unitree
+Group=unitree
+WorkingDirectory=/home/unitree/rh56dfx/workspace/execution/action_runtime_v3
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/bin/bash /home/unitree/rh56dfx/workspace/execution/action_runtime_v3/deployment/rail_jetson/run_standalone.sh --hardware --host 127.0.0.1 --port 8795
+ExecStartPost=/usr/bin/python3 /home/unitree/rh56dfx/workspace/execution/action_runtime_v3/deployment/rail_jetson/wait_http_ready.py
+Restart=on-failure
+RestartSec=10
+TimeoutStartSec=150
+TimeoutStopSec=180
+# The supervisor owns child shutdown. A retained armed gateway must not be killed.
+KillMode=process
+SendSIGKILL=no
+UMask=0077
+NoNewPrivileges=true
+# Keep the machine-wide controller ownership lock shared with manual launches.
+PrivateTmp=false
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>人形机器人与 ELN 基本控制 HTTP 接口协议 V1.5 · 工序澄清版</title>
+<style>
+:root{color-scheme:light;--ink:#20262e;--line:#d5dce0;--accent:#176858}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);background:#fff;font:15px/1.8 "Microsoft YaHei","PingFang SC",Arial,sans-serif;letter-spacing:0}
+main{max-width:1100px;margin:auto;padding:36px 32px 64px}header{border-bottom:3px solid var(--accent);padding-bottom:18px}h1{font-size:27px;line-height:1.4;margin:0 0 12px}h2{font-size:22px;margin:38px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}h3{font-size:18px;margin:25px 0 10px}h4{font-size:16px;margin:20px 0 8px}p{margin:8px 0}a{color:#176858;text-underline-offset:3px}nav{padding:16px 0;border-bottom:1px solid var(--line)}nav a{display:inline-block;margin:4px 20px 4px 0}code{font-family:Consolas,Monaco,monospace;overflow-wrap:anywhere}pre{padding:16px;background:#f3f6f7;border:1px solid var(--line);border-radius:4px;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.7 Consolas,Monaco,monospace}table{border-collapse:collapse;width:100%;font-size:14px;margin:14px 0 20px;table-layout:fixed}th,td{border:1px solid var(--line);text-align:left;vertical-align:top;padding:10px;overflow-wrap:anywhere}th{background:#edf4f1}tr:nth-child(even) td{background:#fafbfc}.note{border-left:4px solid var(--accent);background:#f1f7f5;padding:12px 16px;margin:16px 0}.pending{border-left-color:#a66c12;background:#fff8e9}.muted{color:#58636d}.table-wrap{overflow-x:auto}.process{min-width:800px}.process th:first-child{width:65px}ul,ol{padding-left:24px}li{margin:5px 0}section{scroll-margin-top:16px}
+@media(max-width:700px){main{padding:24px 16px 40px}h1{font-size:23px}h2{font-size:20px}th,td{padding:8px}nav a{margin-right:14px}}
+@media print{main{max-width:none;padding:0}nav{display:none}h2,h3,h4{break-after:avoid}tr,pre,.note{break-inside:avoid}.table-wrap{overflow:visible}.process{min-width:0}body{font-size:11px}table{font-size:10px}pre{font-size:10px}a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>人形机器人与 ELN 基本控制 HTTP 接口协议</h1>
+<p><strong>协议版本：V1.5</strong> · 工序澄清版</p>
+<p class="muted">依据原 V1.5 文档及现场工序160、190、200、250、270、290整理。仅重组和澄清说明，接口路径、HTTP 方法、字段名称与类型、枚举值、错误码和原有计数规则保持不变。</p>
+</header>
+<nav aria-label="文档目录">
+<a href="#overview">1. 通信与接口总览</a><a href="#process">2. 现场工序对照</a><a href="#initialize">3. 初始化</a><a href="#tasks">4. 控制任务</a><a href="#callbacks">5. 状态回调</a><a href="#query-cancel">6. 查询与取消</a><a href="#errors">7. 错误码</a><a href="#safety">8. 执行要求</a><a href="#boundaries">附录：定义边界</a>
+</nav>
+
+<section id="overview">
+<h2>1. 通信与接口总览</h2>
+<table>
+<tr><th>项目</th><th>约定</th></tr>
+<tr><td>通信方式</td><td>HTTP/HTTPS + JSON；全部业务接口使用 <code>POST</code>。</td></tr>
+<tr><td>调用方向</td><td>ELN 向机器人下发任务；机器人向 ELN 回调任务状态。</td></tr>
+<tr><td>机器人服务地址</td><td><code>https://{robot-host}/api/v1</code>。下表路径已包含 <code>/api/v1</code>，拼接完整 URL 时不要重复添加。</td></tr>
+<tr><td>回调地址</td><td>由 ELN 在请求的 <code>callbackUrl</code> 中提供。</td></tr>
+<tr><td>请求头与编码</td><td><code>Content-Type: application/json</code>；UTF-8。</td></tr>
+<tr><td>时间格式</td><td>ISO 8601，包含时区，例如 <code>2026-09-20T17:00:00+08:00</code>。</td></tr>
+</table>
+<table>
+<tr><th>用途</th><th>调用方向</th><th>方法与路径</th></tr>
+<tr><td>机器人初始化</td><td>ELN → 机器人</td><td><code>POST /api/v1/robot/initialize</code></td></tr>
+<tr><td>下发控制任务</td><td>ELN → 机器人</td><td><code>POST /api/v1/tasks</code></td></tr>
+<tr><td>上报任务状态</td><td>机器人 → ELN</td><td><code>POST {callbackUrl}</code></td></tr>
+<tr><td>查询任务</td><td>ELN → 机器人</td><td><code>POST /api/v1/tasks/{taskId}/query</code></td></tr>
+<tr><td>取消任务</td><td>ELN → 机器人</td><td><code>POST /api/v1/tasks/{taskId}/cancel</code></td></tr>
+</table>
+<div class="note"><strong>接收与完成是两个不同阶段。</strong>同步响应中的 <code>code=0</code>、<code>status=ACCEPTED</code> 只表示任务已接收。动作是否成功完成，以后续任务状态为准；<code>progress</code> 表示已完成次数，不是百分比。</div>
+</section>
+
+<section id="process">
+<h2>2. 现场工序与任务参数对照</h2>
+<p>下表按工序号排列，便于查阅；实际调度顺序和前置条件由现场工艺确定。本表不是批量执行指令。工序号仅用于业务对照，原接口没有工序号字段。</p>
+<div class="table-wrap"><table class="process">
+<tr><th>工序</th><th>现场动作</th><th>任务类型与 parameters</th><th>计数与完成状态</th></tr>
+<tr><td>160</td><td>全行程连续前轮转弯20次。</td><td><code>NWS_CYCLE</code><br><code>{"count":20}</code></td><td>左旋一次＋右旋一次计1次。完成20组，<code>progress=20</code>。</td></tr>
+<tr><td>190</td><td>系统稳定后，放下前起落架顶起，进入承重；模拟起落架及刹车系统 WOW 为空中状态。</td><td><code>NLG_WOW_OPERATION</code><br><code>{"wowSignal":"AIR"}</code></td><td>完成对应现场操作，WOW 达到 AIR 后方可成功；<code>progress=1</code>。</td></tr>
+<tr><td>200</td><td>连续执行5次起落架操作，第5次仅收起，不再放下。</td><td><code>GEAR_OPERATION</code><br><code>{"count":5,"preAction":"NONE","cycleMode":"FINAL_RETRACT_ONLY"}</code></td><td>前4次完整收放；第5次收起并确认上位锁上锁后计数。最终收起、上位锁上锁，<code>progress=5</code>。</td></tr>
+<tr><td>250</td><td>先放下至下位锁上锁，再连续完整收放5次。</td><td><code>GEAR_OPERATION</code><br><code>{"count":5,"preAction":"EXTEND_DOWNLOCK","cycleMode":"FULL_CYCLE"}</code></td><td>先放下的预动作不计数；随后完成5次完整收放。最终放下、下位锁上锁，<code>progress=5</code>。</td></tr>
+<tr><td>270</td><td>升起前起落架顶起，解除承重；模拟起落架及刹车 WOW 为地面状态。</td><td><code>NLG_WOW_OPERATION</code><br><code>{"wowSignal":"GROUND"}</code></td><td>完成对应现场操作，WOW 达到 GROUND 后方可成功；<code>progress=1</code>。</td></tr>
+<tr><td>290</td><td>全行程连续前轮转弯20次。</td><td><code>NWS_CYCLE</code><br><code>{"count":20}</code></td><td>与工序160相同，但单独下发、单独计数。完成20组，<code>progress=20</code>。</td></tr>
+</table></div>
+<p>工序160与290应使用不同的 <code>taskId</code>，不能复用同一任务号。两道工序各执行20组，并非共同完成20组。</p>
+<div class="note"><strong>承重操作与起落架收放要区分。</strong>工序190、270中的“放下／升起前起落架顶起”沿用现场表述，分别对应“进入承重／解除承重”；通过 <code>NLG_WOW_OPERATION</code> 执行。工序200、250中的“收起／放下起落架”通过 <code>GEAR_OPERATION</code> 执行。<code>AIR</code>、<code>GROUND</code> 表示模拟的 WOW 信号目标，不能据此反向解释现场承重动作。</div>
+</section>
+
+<section id="initialize">
+<h2>3. 机器人初始化接口</h2>
+<pre><code>POST /api/v1/robot/initialize</code></pre>
+<p>ELN 在执行控制任务前调用，使机器人完成基础自检、执行机构回零和控制系统准备。</p>
+<h3>3.1 请求示例</h3>
+<pre><code>{
+  "taskId": "INIT-20260920-0001",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status"
+}</code></pre>
+<p><code>taskId</code> 为初始化任务号，<code>callbackUrl</code> 为状态回调地址。初始化使用专用接口；原请求示例不包含 <code>taskType</code> 或 <code>parameters</code>。</p>
+<h3>3.2 接收响应与完成判定</h3>
+<pre><code>{
+  "code": 0,
+  "message": "accepted",
+  "taskId": "INIT-20260920-0001",
+  "status": "ACCEPTED"
+}</code></pre>
+<p>初始化状态通过第5章的统一回调上报，回调中的 <code>taskType</code> 固定为 <code>ROBOT_INITIALIZE</code>。开始时 <code>progress=0</code>，成功完成时 <code>progress=1</code>、<code>status=SUCCEEDED</code>。收到接收响应不代表初始化已经完成。</p>
+</section>
+
+<section id="tasks">
+<h2>4. 控制任务下发与参数</h2>
+<pre><code>POST /api/v1/tasks</code></pre>
+<h3>4.1 通用请求与接收响应</h3>
+<table>
+<tr><th>字段</th><th>类型</th><th>必填</th><th>说明</th></tr>
+<tr><td><code>taskId</code></td><td>string</td><td>是</td><td>ELN 生成的唯一任务号；相同 taskId 不得重复执行。</td></tr>
+<tr><td><code>taskType</code></td><td>string</td><td>是</td><td><code>NWS_CYCLE</code>、<code>NLG_WOW_OPERATION</code> 或 <code>GEAR_OPERATION</code>。</td></tr>
+<tr><td><code>callbackUrl</code></td><td>string</td><td>是</td><td>机器人上报状态的 ELN 地址。</td></tr>
+<tr><td><code>parameters</code></td><td>object</td><td>是</td><td>对应任务类型的参数，见4.2至4.4节。</td></tr>
+</table>
+<p>下列各任务示例均为完整请求体。机器人接收任务后的同步响应示例：</p>
+<pre><code>{
+  "code": 0,
+  "message": "accepted",
+  "taskId": "TASK-20260920-0001",
+  "status": "ACCEPTED"
+}</code></pre>
+<p>响应中的 <code>taskId</code> 对应本次请求；该响应不表示动作已经完成。</p>
+
+<h3>4.2 前轮转弯连续动作：NWS_CYCLE</h3>
+<p><strong>适用工序：160、290。</strong>机器人按照本地预设的全行程动作曲线连续执行。</p>
+<table><tr><th>参数</th><th>类型</th><th>取值与含义</th></tr><tr><td><code>count</code></td><td>integer</td><td>需要完成的前轮转弯操作次数，必须为正整数。</td></tr></table>
+<pre><code>{
+  "taskId": "TASK-20260920-0001",
+  "taskType": "NWS_CYCLE",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "count": 20
+  }
+}</code></pre>
+<p>此示例可用于工序160；工序290使用同一参数结构和 <code>count=20</code>，但需换用新的唯一任务号。</p>
+<div class="note"><strong>1次＝左旋一次＋右旋一次。</strong>只有两个方向均完成，<code>progress</code> 才加1。仅完成左旋或右旋不计为完整操作。<code>count=20</code> 表示20组，即20次左旋和20次右旋。</div>
+<p>例如：第1组只完成左旋时 <code>progress=0</code>；第1组右旋也完成后为1；第20组完成后为20，正常完成上报 <code>SUCCEEDED</code>。原协议未规定任务结束后的额外回中动作。</p>
+
+<h3>4.3 前起落架承重与 WOW 信号模拟：NLG_WOW_OPERATION</h3>
+<table><tr><th>参数</th><th>类型</th><th>取值与含义</th></tr><tr><td><code>wowSignal</code></td><td>string</td><td><code>AIR</code>：目标为空中状态；<code>GROUND</code>：目标为地面状态。</td></tr></table>
+<h4>工序190：进入承重，模拟空中状态</h4>
+<p>前置条件为系统稳定。按现场工序放下前起落架顶起、进入承重，并模拟起落架及刹车系统 WOW 为空中状态。</p>
+<pre><code>{
+  "taskId": "TASK-20260920-0002",
+  "taskType": "NLG_WOW_OPERATION",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "wowSignal": "AIR"
+  }
+}</code></pre>
+<h4>工序270：解除承重，模拟地面状态</h4>
+<p>按现场工序升起前起落架顶起、解除承重，并模拟起落架及刹车 WOW 为地面状态。</p>
+<pre><code>{
+  "taskId": "TASK-20260920-0003",
+  "taskType": "NLG_WOW_OPERATION",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "wowSignal": "GROUND"
+  }
+}</code></pre>
+<p>两种任务均在开始时上报 <code>progress=0</code>；WOW 信号达到目标状态后，完成计数更新为1。未达到目标不得上报成功。工序涉及起落架及刹车系统的 WOW 模拟，原协议通过同一个 <code>wowSignal</code> 表达目标，未分别设置两个请求字段。</p>
+
+<h3>4.4 起落架连续收放：GEAR_OPERATION</h3>
+<table>
+<tr><th>参数</th><th>类型</th><th>取值与含义</th></tr>
+<tr><td><code>count</code></td><td>integer</td><td>需要完成的起落架操作次数，必须为正整数；按 cycleMode 对应的完成条件计数。</td></tr>
+<tr><td><code>preAction</code></td><td>string</td><td><code>NONE</code>：无预动作。<br><code>EXTEND_DOWNLOCK</code>：正式计数前先放下并确认下位锁上锁；该预动作不计数。</td></tr>
+<tr><td><code>cycleMode</code></td><td>string</td><td><code>FULL_CYCLE</code>：每次完整收起再放下，最终下位锁上锁。<br><code>FINAL_RETRACT_ONLY</code>：前 count−1 次完整收放，最后一次仅收起，最终上位锁上锁。</td></tr>
+</table>
+<p>“收起完成”指确认上位锁上锁；“放下完成”指确认下位锁上锁。发出控制命令、机构开始运动或到达位置但未确认锁定，都不能替代对应阶段的完成确认。</p>
+<h4>工序200：前4次完整收放，第5次仅收起</h4>
+<pre><code>{
+  "taskId": "TASK-20260920-0005",
+  "taskType": "GEAR_OPERATION",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "count": 5,
+    "preAction": "NONE",
+    "cycleMode": "FINAL_RETRACT_ONLY"
+  }
+}</code></pre>
+<table>
+<tr><th>阶段</th><th>执行动作与确认条件</th><th>完成后的 progress</th></tr>
+<tr><td>第1至4次</td><td>每次收起并确认上位锁，再放下并确认下位锁；每完成一整次才计数。</td><td>依次为1、2、3、4</td></tr>
+<tr><td>第5次</td><td>仅收起，确认上位锁上锁后计数；到此结束，不再放下。</td><td>5</td></tr>
+</table>
+<div class="note"><strong>最终状态：收起且上位锁上锁。</strong>该工序共有5次收起、4次放下。<code>progress=5</code> 表示按此模式完成5次操作，不表示完成5次完整收放。不得先完整收放5次后再额外收起。</div>
+<h4>工序250：先放下，再完整收放5次</h4>
+<pre><code>{
+  "taskId": "TASK-20260920-0006",
+  "taskType": "GEAR_OPERATION",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "count": 5,
+    "preAction": "EXTEND_DOWNLOCK",
+    "cycleMode": "FULL_CYCLE"
+  }
+}</code></pre>
+<table>
+<tr><th>阶段</th><th>执行动作与确认条件</th><th>完成后的 progress</th></tr>
+<tr><td>预动作</td><td>先放下起落架，确认下位锁上锁后才能进入正式循环；不计入5次。</td><td>0</td></tr>
+<tr><td>第1至4次</td><td>每次收起并确认上位锁，再放下并确认下位锁。</td><td>依次为1、2、3、4</td></tr>
+<tr><td>第5次</td><td>仍执行完整收起、放下；确认下位锁上锁后结束。</td><td>5</td></tr>
+</table>
+<div class="note"><strong>最终状态：放下且下位锁上锁。</strong>从收起状态开始时，该工序包含1次预放下＋5次完整收放，共5次收起、6次放下。最开始的预放下不占用 <code>count</code>，也不增加 <code>progress</code>。</div>
+<h4>原协议通用示例：无预动作，完整收放5次</h4>
+<p>以下保留原协议的标准完整循环用法。它不包含工序250要求的预放下，不能直接替代工序250参数。</p>
+<pre><code>{
+  "taskId": "TASK-20260920-0004",
+  "taskType": "GEAR_OPERATION",
+  "callbackUrl": "https://eln-host/eln/api/v1/robot-callbacks/task-status",
+  "parameters": {
+    "count": 5,
+    "preAction": "NONE",
+    "cycleMode": "FULL_CYCLE"
+  }
+}</code></pre>
+</section>
+
+<section id="callbacks">
+<h2>5. 统一状态回调</h2>
+<pre><code>POST {callbackUrl}</code></pre>
+<p>机器人在任务状态变化或已完成次数变化时，向任务请求提供的 ELN 地址上报。初始化任务与控制任务共用此回调结构。</p>
+<h3>5.1 回调报文</h3>
+<pre><code>{
+  "taskId": "TASK-20260920-0001",
+  "taskType": "NWS_CYCLE",
+  "status": "RUNNING",
+  "progress": 8,
+  "message": "已完成8/20次前轮转弯操作",
+  "timestamp": "2026-09-20T17:00:00+08:00",
+  "errorCode": null
+}</code></pre>
+<table>
+<tr><th>字段</th><th>类型</th><th>必填</th><th>说明</th></tr>
+<tr><td><code>taskId</code></td><td>string</td><td>是</td><td>ELN 下发的任务唯一编号，机器人原样返回。</td></tr>
+<tr><td><code>taskType</code></td><td>string</td><td>是</td><td>对应控制任务类型；初始化回调固定为 <code>ROBOT_INITIALIZE</code>。</td></tr>
+<tr><td><code>status</code></td><td>string</td><td>是</td><td><code>ACCEPTED</code>、<code>RUNNING</code>、<code>SUCCEEDED</code>、<code>FAILED</code> 或 <code>CANCELLED</code>。</td></tr>
+<tr><td><code>progress</code></td><td>integer</td><td>是</td><td>已经完成的次数，不是百分比；见5.3节。</td></tr>
+<tr><td><code>message</code></td><td>string</td><td>是</td><td>可读状态说明，建议包含当前动作、已完成次数和总次数。</td></tr>
+<tr><td><code>timestamp</code></td><td>string</td><td>是</td><td>状态产生时间，ISO 8601 格式且包含时区。</td></tr>
+<tr><td><code>errorCode</code></td><td>string/null</td><td>是</td><td>非失败状态为 <code>null</code>；<code>FAILED</code> 时填写业务错误码。</td></tr>
+</table>
+<h3>5.2 回调时机与状态流转</h3>
+<ol>
+<li>机器人接收任务后，上报 <code>ACCEPTED</code>。</li>
+<li>开始执行时，上报 <code>RUNNING</code>，<code>progress=0</code>。</li>
+<li>按对应任务的计数条件更新 <code>progress</code>，并上报变化。</li>
+<li>正常完成上报 <code>SUCCEEDED</code>；失败上报 <code>FAILED</code>；完成受控取消后上报 <code>CANCELLED</code>。</li>
+</ol>
+<p>推荐状态流转：<code>ACCEPTED → RUNNING → SUCCEEDED / FAILED / CANCELLED</code>。三个结束状态均为最终状态，不得回退。</p>
+<h3>5.3 progress 计数规则</h3>
+<table>
+<tr><th>任务／模式</th><th>增加计数的条件</th><th>成功完成时的值</th></tr>
+<tr><td><code>ROBOT_INITIALIZE</code></td><td>初始化完成；开始为0。</td><td>1</td></tr>
+<tr><td><code>NWS_CYCLE</code></td><td>完成一组“左旋一次＋右旋一次”加1；仅完成其中一个方向不增加。</td><td><code>count</code></td></tr>
+<tr><td><code>NLG_WOW_OPERATION</code></td><td>WOW 信号达到目标状态，计数从0变为1。</td><td>1</td></tr>
+<tr><td><code>GEAR_OPERATION</code><br><code>FULL_CYCLE</code></td><td>每次完成收起、放下并确认下位锁后加1。</td><td><code>count</code></td></tr>
+<tr><td><code>GEAR_OPERATION</code><br><code>FINAL_RETRACT_ONLY</code></td><td>前 count−1 次按完整循环计数；最后一次仅收起并确认上位锁后加1。</td><td><code>count</code></td></tr>
+</table>
+<p><code>preAction</code> 不计数。发生 <code>FAILED</code> 或 <code>CANCELLED</code> 时，保留停止前已按相应规则完成的次数，未完成的当前动作不得计数。例如：工序200第5次尚未确认上位锁时停止，<code>progress</code> 保持4；工序250预放下阶段停止，<code>progress</code> 为0。</p>
+<h3>5.4 ELN 回调应答与去重</h3>
+<pre><code>{
+  "code": 0,
+  "message": "received"
+}</code></pre>
+<p><code>code=0</code> 表示 ELN 已接收回调。机器人未收到成功应答时可重复发送；ELN 应依据 <code>taskId + status + progress + timestamp</code> 去重。这是回调接收确认，不是新的任务执行请求。</p>
+</section>
+
+<section id="query-cancel">
+<h2>6. 查询与取消</h2>
+<h3>6.1 查询任务</h3>
+<pre><code>POST /api/v1/tasks/{taskId}/query</code></pre>
+<p>查询指定任务的当前状态和已完成次数。路径中的 <code>{taskId}</code> 替换为要查询的任务号。</p>
+<h3>6.2 取消任务</h3>
+<pre><code>POST /api/v1/tasks/{taskId}/cancel</code></pre>
+<p>请求体示例：</p>
+<pre><code>{ "reason": "ELN operator cancelled" }</code></pre>
+<p>取消是受控停止请求。机器人无法立即安全停止时，应完成安全停机流程，并通过回调返回最终状态。发出取消请求不代表已经停止；完成受控取消后上报 <code>CANCELLED</code>，并保留已经完成的次数。</p>
+<div class="note pending">原 V1.5 未给出查询接口的请求体和响应体结构，也未给出取消接口的同步响应结构。本版保留该定义边界，不将状态回调报文擅自规定为查询响应。</div>
+</section>
+
+<section id="errors">
+<h2>7. 统一错误码</h2>
+<table>
+<tr><th>code</th><th>说明</th></tr>
+<tr><td>0</td><td>成功或已接收</td></tr>
+<tr><td>1001</td><td>参数错误</td></tr>
+<tr><td>1002</td><td>未授权</td></tr>
+<tr><td>1003</td><td>任务号重复</td></tr>
+<tr><td>2001</td><td>机器人忙</td></tr>
+<tr><td>2002</td><td>安全条件不满足</td></tr>
+<tr><td>2003</td><td>初始化未完成</td></tr>
+<tr><td>2004</td><td>执行机构故障</td></tr>
+</table>
+<p>同步应答使用 <code>code</code>；状态回调使用 <code>errorCode</code>。回调字段仍保持原定义的 <code>string/null</code> 类型，不因本表以数字列示错误码而改成整数。原文未提供失败回调中业务错误码的具体字符串示例及其与本表的映射，本版不新增映射。</p>
+</section>
+
+<section id="safety">
+<h2>8. 安全与执行要求</h2>
+<ul>
+<li>起落架收起或放下动作，只有确认对应上位锁或下位锁上锁后，才能判定该阶段完成。</li>
+<li><code>FINAL_RETRACT_ONLY</code> 的最后一次确认上位锁后必须停止，不得自动继续放下。</li>
+<li><code>EXTEND_DOWNLOCK</code> 预动作必须确认下位锁上锁后，才能开始正式计数。</li>
+<li><code>NLG_WOW_OPERATION</code> 必须校验 WOW 信号是否达到目标状态；未达到目标不得上报成功。</li>
+<li>安全联锁、硬件急停或人员进入危险区域时，机器人应停止后续动作，并按实际已完成次数回调 <code>FAILED</code> 或 <code>CANCELLED</code>。</li>
+</ul>
+</section>
+
+<section id="boundaries">
+<h2>附录：原协议定义边界与联调确认项</h2>
+<p>以下事项在原 V1.5 中未明确；列出它们是为避免对说明文字作不同理解，不构成新增字段、默认值或执行要求。</p>
+<table>
+<tr><th>事项</th><th>现有定义及待确认范围</th></tr>
+<tr><td>参数缺省行为</td><td>原文给出 count、wowSignal、preAction、cycleMode 的类型与取值，但未逐项标注必填性或默认值。本版示例显式填写相应参数，不规定省略后的行为。</td></tr>
+<tr><td>现场动作与信号确认</td><td>工序190、270的承重含义按现场说明对应；“系统稳定”的判定、承重动作的具体执行方式，以及起落架与刹车 WOW 的采集／确认方式，原 HTTP 协议未细化。</td></tr>
+<tr><td>前轮动作细节</td><td>全行程采用机器人本地预设曲线；角度、速度、停留时间和完成后是否回中，原协议未给出可配置字段。</td></tr>
+<tr><td>查询与取消报文</td><td>查询请求体、查询响应体、取消同步响应及 reason 字段的必填性等，原文未完整定义。</td></tr>
+<tr><td>鉴权与 HTTP 状态码</td><td>原文列有1002“未授权”，但未规定鉴权头、凭据形式或业务错误码与 HTTP 状态码的对应关系。</td></tr>
+<tr><td>回调重试与错误报文</td><td>原文允许未成功应答时重发，并规定去重依据；重试间隔、次数、超时、失败同步响应结构及 errorCode 字符串映射未细化。</td></tr>
+</table>
+<p class="muted">整理依据：人形机器人_ELN_HTTP_API协议_V1.5.html；现场提供的六项机器人执行工序。本版保持协议版本 V1.5，“工序澄清版”为文档标识。</p>
+</section>
+</main>
+</body>
+</html>

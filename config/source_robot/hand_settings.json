@@ -1,0 +1,7 @@
+{
+    "contact_threshold": 50,
+    "left_grip_current_ma": 200,
+    "left_grip_force_grams": 300,
+    "right_grip_current_ma": 200,
+    "right_grip_force_grams": 600
+}
